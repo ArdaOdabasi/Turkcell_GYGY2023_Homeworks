@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "secondAssignment_GYGY2023/1.0.0": {
+        "runtime": {
+          "secondAssignment_GYGY2023.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "secondAssignment_GYGY2023/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
