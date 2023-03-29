@@ -3,17 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1_firstAssignment_GYGY2023", "1_firstAssignment_GYGY2023\1_firstAssignment_GYGY2023.csproj", "{1472034C-527B-40A3-85FC-7D8886F4511F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1_firstAssignment_GYGY2023", "1_firstAssignment_GYGY2023\1_firstAssignment_GYGY2023.csproj", "{1472034C-527B-40A3-85FC-7D8886F4511F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2_secondAssignment_GYGY2023", "2_secondAssignment_GYGY2023\2_secondAssignment_GYGY2023.csproj", "{D0848C41-F35A-493E-98F7-DB3C96D568BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2_secondAssignment_GYGY2023", "2_secondAssignment_GYGY2023\2_secondAssignment_GYGY2023.csproj", "{D0848C41-F35A-493E-98F7-DB3C96D568BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3_thirdAssignment_GYGY2023", "3_thirdAssignment_GYGY2023\3_thirdAssignment_GYGY2023.csproj", "{5C895740-9A4D-4A7E-8833-239DD48CBAB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3_thirdAssignment_GYGY2023", "3_thirdAssignment_GYGY2023\3_thirdAssignment_GYGY2023.csproj", "{5C895740-9A4D-4A7E-8833-239DD48CBAB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4_fourthAssignment_GYGY2023", "4_fourthAssignment_GYGY2023\4_fourthAssignment_GYGY2023.csproj", "{78ED9AB3-7CF9-4B0F-B425-EF32FDE3D750}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "4_fourthAssignment_GYGY2023", "4_fourthAssignment_GYGY2023\4_fourthAssignment_GYGY2023.csproj", "{78ED9AB3-7CF9-4B0F-B425-EF32FDE3D750}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "5_fifthAssignment_GYGY2023", "5_fifthAssignment_GYGY2023\5_fifthAssignment_GYGY2023.csproj", "{BFBEC802-87B7-4D2B-8F86-FEBB16B4915A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "5_fifthAssignment_GYGY2023", "5_fifthAssignment_GYGY2023\5_fifthAssignment_GYGY2023.csproj", "{BFBEC802-87B7-4D2B-8F86-FEBB16B4915A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6_sixthAssignment_GYGY2023", "6_sixthAssignment_GYGY2023\6_sixthAssignment_GYGY2023.csproj", "{0566E494-9518-4368-85E9-52BE8D059E91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "6_sixthAssignment_GYGY2023", "6_sixthAssignment_GYGY2023\6_sixthAssignment_GYGY2023.csproj", "{0566E494-9518-4368-85E9-52BE8D059E91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "7_seventhAssignment_GYGY2023", "7_seventhAssignment_GYGY2023\7_seventhAssignment_GYGY2023.csproj", "{AC1699EB-C229-45A4-A2BA-51ADFA733F7A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{0566E494-9518-4368-85E9-52BE8D059E91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0566E494-9518-4368-85E9-52BE8D059E91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0566E494-9518-4368-85E9-52BE8D059E91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC1699EB-C229-45A4-A2BA-51ADFA733F7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC1699EB-C229-45A4-A2BA-51ADFA733F7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC1699EB-C229-45A4-A2BA-51ADFA733F7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC1699EB-C229-45A4-A2BA-51ADFA733F7A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
