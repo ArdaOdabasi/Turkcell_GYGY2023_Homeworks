@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "5_fifthAssignment_GYGY2023"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "6_sixthAssignment_GYGY2023", "6_sixthAssignment_GYGY2023\6_sixthAssignment_GYGY2023.csproj", "{0566E494-9518-4368-85E9-52BE8D059E91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "7_seventhAssignment_GYGY2023", "7_seventhAssignment_GYGY2023\7_seventhAssignment_GYGY2023.csproj", "{AC1699EB-C229-45A4-A2BA-51ADFA733F7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "7_seventhAssignment_GYGY2023", "7_seventhAssignment_GYGY2023\7_seventhAssignment_GYGY2023.csproj", "{AC1699EB-C229-45A4-A2BA-51ADFA733F7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "8_eighthAssignment_GYGY2023", "8_eighthAssignment_GYGY2023\8_eighthAssignment_GYGY2023.csproj", "{1AC2E05E-8720-44E0-A3C5-4ABB449F4AC4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{AC1699EB-C229-45A4-A2BA-51ADFA733F7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC1699EB-C229-45A4-A2BA-51ADFA733F7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC1699EB-C229-45A4-A2BA-51ADFA733F7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AC2E05E-8720-44E0-A3C5-4ABB449F4AC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AC2E05E-8720-44E0-A3C5-4ABB449F4AC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AC2E05E-8720-44E0-A3C5-4ABB449F4AC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AC2E05E-8720-44E0-A3C5-4ABB449F4AC4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
