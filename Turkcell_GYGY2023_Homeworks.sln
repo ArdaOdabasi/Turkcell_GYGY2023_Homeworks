@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "7_seventhAssignment_GYGY202
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "8_eighthAssignment_GYGY2023", "8_eighthAssignment_GYGY2023\8_eighthAssignment_GYGY2023.csproj", "{1AC2E05E-8720-44E0-A3C5-4ABB449F4AC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "9_ninthAssignment_GYGY2023", "9_ninthAssignment_GYGY2023\9_ninthAssignment_GYGY2023.csproj", "{72FE2E51-A7C1-48C1-AAD8-A4ED57E8CE81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "9_ninthAssignment_GYGY2023", "9_ninthAssignment_GYGY2023\9_ninthAssignment_GYGY2023.csproj", "{72FE2E51-A7C1-48C1-AAD8-A4ED57E8CE81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10_highSchoolAssignment_GYGY2023", "10_highSchoolAssignment_GYGY2023\10_highSchoolAssignment_GYGY2023.csproj", "{C8303D88-A824-44B1-9806-4C6BABA372DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{72FE2E51-A7C1-48C1-AAD8-A4ED57E8CE81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72FE2E51-A7C1-48C1-AAD8-A4ED57E8CE81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72FE2E51-A7C1-48C1-AAD8-A4ED57E8CE81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8303D88-A824-44B1-9806-4C6BABA372DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8303D88-A824-44B1-9806-4C6BABA372DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8303D88-A824-44B1-9806-4C6BABA372DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8303D88-A824-44B1-9806-4C6BABA372DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
