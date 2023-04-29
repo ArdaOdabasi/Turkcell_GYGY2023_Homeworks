@@ -103,12 +103,12 @@
             y += dy;
             // x ve y'yi her karede dx ve dy değişkenimizle güncelledik böylece topun her güncellemede yeni konumunda boyanmasını sağladık.
 
-            if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) // Topun duvara çarptıktan sonra bir kısmının duvarın içine girdiği görülmektedir. Bunun önüne geçmek için "ballRadius" değişkenini hesaplamalara dahil ettik.
+            if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) // Topun duvara çarptıktan sonra bir kısmının duvarın içine girdiği görülmektedir. Bunun önüne geçmek için "ballRadius" değişkenini hesaplamalara dahil ettim.
             {
               dx = -dx;
             }
 
-            if (y + dy > canvas.height - ballRadius || y + dy < ballRadius) // Topun duvara çarptıktan sonra bir kısmının duvarın içine girdiği görülmektedir. Bunun önüne geçmek için "ballRadius" değişkenini hesaplamalara dahil ettik.
+            if (y + dy > canvas.height - ballRadius || y + dy < ballRadius) // Topun duvara çarptıktan sonra bir kısmının duvarın içine girdiği görülmektedir. Bunun önüne geçmek için "ballRadius" değişkenini hesaplamalara dahil ettim.
             {
               dy = -dy;
             }
