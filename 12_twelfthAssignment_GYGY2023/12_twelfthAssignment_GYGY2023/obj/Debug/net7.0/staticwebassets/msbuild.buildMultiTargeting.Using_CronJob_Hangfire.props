@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Using_CronJob_Hangfire.props" />
+</Project>

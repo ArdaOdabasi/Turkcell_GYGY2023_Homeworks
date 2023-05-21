@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\12_twelfthAssignment_GYGY2023.props" />
+</Project>

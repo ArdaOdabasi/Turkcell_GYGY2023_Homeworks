@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "dgSpecHash": "4k/Nrjz5m49ED6QPsg9PAGwl2KykB9AlB/ZygrNOPw5gHHP/T89Be5SkmqAUYOfq2CK/i2TjGhTdxELP09O5yQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\pi\\source\\repos\\Turkcell Geleceği Yazanlar\\Assignments\\Turkcell_GYGY2023_Homeworks\\12_twelfthAssignment_GYGY2023\\12_twelfthAssignment_GYGY2023\\12_twelfthAssignment_GYGY2023.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\pi\\.nuget\\packages\\hangfire\\1.8.1\\hangfire.1.8.1.nupkg.sha512",
+    "C:\\Users\\pi\\.nuget\\packages\\hangfire.aspnetcore\\1.8.1\\hangfire.aspnetcore.1.8.1.nupkg.sha512",
+    "C:\\Users\\pi\\.nuget\\packages\\hangfire.core\\1.8.1\\hangfire.core.1.8.1.nupkg.sha512",
+    "C:\\Users\\pi\\.nuget\\packages\\hangfire.netcore\\1.8.1\\hangfire.netcore.1.8.1.nupkg.sha512",
+    "C:\\Users\\pi\\.nuget\\packages\\hangfire.sqlserver\\1.8.1\\hangfire.sqlserver.1.8.1.nupkg.sha512",
+    "C:\\Users\\pi\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\3.0.0\\microsoft.extensions.configuration.abstractions.3.0.0.nupkg.sha512",
+    "C:\\Users\\pi\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.0.0\\microsoft.extensions.dependencyinjection.abstractions.3.0.0.nupkg.sha512",
+    "C:\\Users\\pi\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\3.0.0\\microsoft.extensions.fileproviders.abstractions.3.0.0.nupkg.sha512",
+    "C:\\Users\\pi\\.nuget\\packages\\microsoft.extensions.hosting.abstractions\\3.0.0\\microsoft.extensions.hosting.abstractions.3.0.0.nupkg.sha512",
+    "C:\\Users\\pi\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.0.0\\microsoft.extensions.logging.abstractions.3.0.0.nupkg.sha512",
+    "C:\\Users\\pi\\.nuget\\packages\\microsoft.extensions.primitives\\3.0.0\\microsoft.extensions.primitives.3.0.0.nupkg.sha512",
+    "C:\\Users\\pi\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+    "C:\\Users\\pi\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
+    "C:\\Users\\pi\\.nuget\\packages\\newtonsoft.json\\11.0.1\\newtonsoft.json.11.0.1.nupkg.sha512",
+    "C:\\Users\\pi\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
+    "C:\\Users\\pi\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\pi\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\pi\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\pi\\.nuget\\packages\\system.data.sqlclient\\4.8.5\\system.data.sqlclient.4.8.5.nupkg.sha512",
+    "C:\\Users\\pi\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
+    "C:\\Users\\pi\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}
