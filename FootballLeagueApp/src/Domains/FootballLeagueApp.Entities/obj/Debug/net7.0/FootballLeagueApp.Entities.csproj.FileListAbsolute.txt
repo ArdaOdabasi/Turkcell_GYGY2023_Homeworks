@@ -1,0 +1,12 @@
+C:\Users\pi\source\repos\Turkcell Geleceği Yazanlar\Assignments\Turkcell_GYGY2023_Homeworks\FootballLeagueApp\src\Domains\FootballLeagueApp.Entities\bin\Debug\net7.0\FootballLeagueApp.Entities.deps.json
+C:\Users\pi\source\repos\Turkcell Geleceği Yazanlar\Assignments\Turkcell_GYGY2023_Homeworks\FootballLeagueApp\src\Domains\FootballLeagueApp.Entities\bin\Debug\net7.0\FootballLeagueApp.Entities.dll
+C:\Users\pi\source\repos\Turkcell Geleceği Yazanlar\Assignments\Turkcell_GYGY2023_Homeworks\FootballLeagueApp\src\Domains\FootballLeagueApp.Entities\bin\Debug\net7.0\FootballLeagueApp.Entities.pdb
+C:\Users\pi\source\repos\Turkcell Geleceği Yazanlar\Assignments\Turkcell_GYGY2023_Homeworks\FootballLeagueApp\src\Domains\FootballLeagueApp.Entities\obj\Debug\net7.0\FootballLeagueApp.Entities.csproj.AssemblyReference.cache
+C:\Users\pi\source\repos\Turkcell Geleceği Yazanlar\Assignments\Turkcell_GYGY2023_Homeworks\FootballLeagueApp\src\Domains\FootballLeagueApp.Entities\obj\Debug\net7.0\FootballLeagueApp.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pi\source\repos\Turkcell Geleceği Yazanlar\Assignments\Turkcell_GYGY2023_Homeworks\FootballLeagueApp\src\Domains\FootballLeagueApp.Entities\obj\Debug\net7.0\FootballLeagueApp.Entities.AssemblyInfoInputs.cache
+C:\Users\pi\source\repos\Turkcell Geleceği Yazanlar\Assignments\Turkcell_GYGY2023_Homeworks\FootballLeagueApp\src\Domains\FootballLeagueApp.Entities\obj\Debug\net7.0\FootballLeagueApp.Entities.AssemblyInfo.cs
+C:\Users\pi\source\repos\Turkcell Geleceği Yazanlar\Assignments\Turkcell_GYGY2023_Homeworks\FootballLeagueApp\src\Domains\FootballLeagueApp.Entities\obj\Debug\net7.0\FootballLeagueApp.Entities.csproj.CoreCompileInputs.cache
+C:\Users\pi\source\repos\Turkcell Geleceği Yazanlar\Assignments\Turkcell_GYGY2023_Homeworks\FootballLeagueApp\src\Domains\FootballLeagueApp.Entities\obj\Debug\net7.0\FootballLeagueApp.Entities.dll
+C:\Users\pi\source\repos\Turkcell Geleceği Yazanlar\Assignments\Turkcell_GYGY2023_Homeworks\FootballLeagueApp\src\Domains\FootballLeagueApp.Entities\obj\Debug\net7.0\refint\FootballLeagueApp.Entities.dll
+C:\Users\pi\source\repos\Turkcell Geleceği Yazanlar\Assignments\Turkcell_GYGY2023_Homeworks\FootballLeagueApp\src\Domains\FootballLeagueApp.Entities\obj\Debug\net7.0\FootballLeagueApp.Entities.pdb
+C:\Users\pi\source\repos\Turkcell Geleceği Yazanlar\Assignments\Turkcell_GYGY2023_Homeworks\FootballLeagueApp\src\Domains\FootballLeagueApp.Entities\obj\Debug\net7.0\ref\FootballLeagueApp.Entities.dll

@@ -1,0 +1,51 @@
+﻿@model AllPlayersViewModel
+@{
+    ViewData["Title"] = "Oyuncular";
+    var sequence = 1;
+    var statistics = Model.statistics;
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10"></div>
+        <div class="col-md-2">@await Component.InvokeAsync("ComboBox")</div>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Ad</th>
+            <th scope="col">Soyad</th>
+            <th scope="col">Yaş</th>
+            <th scope="col">Pozisyon</th>
+            <th scope="col">Uyruk</th>
+            <th scope="col">Maç</th>
+            <th scope="col">Gol</th>
+            <th scope="col">Asist</th>
+            <th scope="col">Sarı Kart</th>
+            <th scope="col">Kırmızı Kart</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var player in Model.players)
+        {
+            <tr>
+                <th scope="row">@sequence</th>
+                <td>@player.FirstName</td>
+                <td>@player.LastName</td>
+                <td>@player.Age</td>
+                <td>@player.Position</td>
+                <td>@player.Nationality</td>
+                <td>@statistics[sequence - 1].Match</td>
+                <td>@statistics[sequence - 1].Goal</td>
+                <td>@statistics[sequence - 1].Assist</td>
+                <td>@statistics[sequence - 1].YellowCard</td>
+                <td>@statistics[sequence - 1].RedCard</td>    
+            </tr>
+
+            sequence++;
+        }
+    </tbody>
+</table>

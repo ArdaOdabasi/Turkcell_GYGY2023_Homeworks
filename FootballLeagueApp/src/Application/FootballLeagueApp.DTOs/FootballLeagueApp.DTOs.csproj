@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Requests\CoachRequests\" />
+    <Folder Include="Requests\MatchRequests\" />
+    <Folder Include="Requests\PlayerRequests\" />
+    <Folder Include="Requests\StadiumRequests\" />
+    <Folder Include="Requests\StandingRequests\" />
+    <Folder Include="Requests\StatisticRequests\" />
+    <Folder Include="Requests\TeamRequests\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Infrastructure\FootballLeagueApp.Infrastructure\FootballLeagueApp.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\FootballLeagueApp.Repositories\FootballLeagueApp.Repositories.csproj" />
+  </ItemGroup>
+
+</Project>

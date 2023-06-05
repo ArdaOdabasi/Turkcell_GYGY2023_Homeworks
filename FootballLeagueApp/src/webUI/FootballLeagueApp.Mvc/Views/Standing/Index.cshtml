@@ -1,0 +1,42 @@
+﻿@model AllStandingsViewModel
+@{
+    ViewData["Title"] = "Puan Durumu";
+    var sequence = 1;
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Takım</th>
+            <th scope="col">Puan</th>
+            <th scope="col">Galibiyet</th>
+            <th scope="col">Beraberlik</th>
+            <th scope="col">Mağlubiyet</th>
+            <th scope="col">Attığı Gol</th>
+            <th scope="col">Yediği Gol</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var team in Model.teams)
+        {
+            @foreach (var standingDisplay in Model.standings)
+            {
+                <tr>
+                    <th scope="row">@sequence</th>
+                    <td>@team.Name</td>
+                    <td>@standingDisplay.Score</td>
+                    <td>@standingDisplay.Win</td>
+                    <td>@standingDisplay.Draw</td>
+                    <td>@standingDisplay.Defeat</td>
+                    <td>@standingDisplay.GoalsFor</td>
+                    <td>@standingDisplay.GoalsAgainst</td>
+                </tr>
+
+                sequence++;
+            }
+        }
+    </tbody>
+</table>
+
+

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<StadiumDisplayResponse>
+@{
+    ViewData["Title"] = "Stadyumlar";
+    var sequence = 1;
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Stadyum Adı</th>
+            <th scope="col">Stadyum Kapasitesi</th>
+            <th scope="col">Stadyum Adresi</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var stadiumDisplay in Model)
+        {
+            <tr>
+                <th scope="row">@sequence</th>
+                <td>@stadiumDisplay.Name</td>
+                <td>@stadiumDisplay.Capacity</td>
+                <td>@stadiumDisplay.Address</td>
+            </tr>
+
+            sequence++;
+        }
+    </tbody>
+</table>

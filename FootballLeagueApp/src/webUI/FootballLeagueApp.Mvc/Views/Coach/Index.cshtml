@@ -1,0 +1,31 @@
+﻿@model IEnumerable<CoachDisplayResponse>
+@{
+    ViewData["Title"] = "Antrenörler";
+    var sequence = 1;
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Ad</th>
+            <th scope="col">Soyad</th>
+            <th scope="col">Yaş</th>
+            <th scope="col">Uyruk</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var coachDisplay in Model)
+        {
+            <tr>
+                <th scope="row">@sequence</th>
+                <td>@coachDisplay.FirstName</td>
+                <td>@coachDisplay.LastName</td>
+                <td>@coachDisplay.Age</td>
+                <td>@coachDisplay.Nationality</td>
+            </tr>
+
+            sequence++;
+        }
+    </tbody>
+</table>

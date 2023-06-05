@@ -1,0 +1,43 @@
+﻿@model IEnumerable<TeamDisplayResponse>
+@{
+    ViewData["Title"] = "Ana Sayfa";
+    var sequence = 1;
+}
+
+<div class="row">
+        <div class="col-md-2"></div
+        
+ <div class="col-md-8">
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Kulübün Logosu</th>
+            <th scope="col">Kulübün Adı</th>
+            <th scope="col">Kuruluş Tarihi</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var teamDisplay in Model)
+        {
+            <tr>
+                <th scope="row">@sequence</th>
+                @if (teamDisplay.ImageUrl == null)
+                {
+                    <td><img src="https://w7.pngwing.com/pngs/250/929/png-transparent-no-symbol-no-smoking-miscellaneous-text-trademark-thumbnail.png" class="img-fluid" style="width: 40px; height: 40px;" /></td>
+                }
+                else
+                {
+                    <td>@teamDisplay.ImageUrl;</td>
+                }
+                <td>@teamDisplay.Name</td>
+                <td>@teamDisplay.FoundingDate</td>
+            </tr>
+
+            sequence++;
+        }
+    </tbody>
+</table>
+</div>
+<div class="col-md-2"></div
+</div>

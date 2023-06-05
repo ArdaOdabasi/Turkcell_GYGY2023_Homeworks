@@ -1,0 +1,36 @@
+﻿@model AllMatchesViewModel
+@{
+    ViewData["Title"] = "Oyuncular";
+    var sequence = 1;
+    var homeTeams = Model.homeTeams;
+    var awayTeams = Model.awayTeams;
+    var stadiums = Model.stadiums;
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Tarih</th>
+            <th scope="col">Ev Sahibi</th>
+            <th scope="col">Sonuç</th>
+            <th scope="col">Deplasman</th>          
+            <th scope="col">Stadyum</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var match in Model.matches)
+        {
+            <tr>
+                <th scope="row">@sequence</th>
+                <td>@match.Date</td>
+                <td>@homeTeams[sequence-1].Name</td>
+                <td>@match.Result</td>
+                <td>@awayTeams[sequence-1].Name</td>
+                <td>@stadiums[sequence-1].Name</td>
+            </tr>
+
+            sequence++;
+        }
+    </tbody>
+</table>
