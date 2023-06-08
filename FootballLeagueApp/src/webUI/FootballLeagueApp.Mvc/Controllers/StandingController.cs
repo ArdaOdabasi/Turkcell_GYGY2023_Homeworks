@@ -1,9 +1,13 @@
-﻿using FootballLeagueApp.DTOs.Responses.TeamResponses;
+﻿using FootballLeagueApp.DTOs.Requests.MatchRequests;
+using FootballLeagueApp.DTOs.Requests.StandingRequests;
+using FootballLeagueApp.DTOs.Responses.TeamResponses;
+using FootballLeagueApp.Entities;
 using FootballLeagueApp.Mvc.Models;
 using FootballLeagueApp.Services.StadiumService;
 using FootballLeagueApp.Services.StandingService;
 using FootballLeagueApp.Services.TeamService;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace FootballLeagueApp.Mvc.Controllers
 {
@@ -22,7 +26,7 @@ namespace FootballLeagueApp.Mvc.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var standings = await _standingService.GetAllStandings();
+            var standings = await _standingService.GetAllStandingsOrderedByScore();
 
             List<TeamDisplayResponse> teams = new List<TeamDisplayResponse>();
 
@@ -41,6 +45,38 @@ namespace FootballLeagueApp.Mvc.Controllers
             };
 
             return View(model);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Create()
+        {
+            ViewBag.Teams = await GetTeamsForSelectList();
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(CreateNewStandingRequest request)
+        {
+            if (ModelState.IsValid)
+            {
+                await _standingService.CreateStandingAsync(request);
+                return RedirectToAction(nameof(Index));
+            }
+
+            ViewBag.Teams = await GetTeamsForSelectList();
+            return View();
+        }
+
+        private async Task<IEnumerable<SelectListItem>> GetTeamsForSelectList()
+        {   
+            var standings = await _standingService.GetAllStandings();
+            var teams = await _teamService.GetAllTeams();
+
+            var existingTeamIds = standings.Select(s => s.TeamId).ToList();
+            var filteredTeams = teams.Where(t => !existingTeamIds.Contains(t.Id));
+
+            var selectList = filteredTeams.Select(c => new SelectListItem { Text = c.Name, Value = c.Id.ToString() }).ToList();
+            return selectList;
         }
     }
 }

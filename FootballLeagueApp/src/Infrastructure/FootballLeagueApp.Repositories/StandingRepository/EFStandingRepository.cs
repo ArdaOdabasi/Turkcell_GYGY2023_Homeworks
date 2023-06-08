@@ -60,6 +60,12 @@ namespace FootballLeagueApp.Repositories.StandingRepository
             return await footballLeagueDbContext.Standings.ToListAsync();
         }
 
+        public async Task<IEnumerable<Standing>> GetAllStandingsOrderedByScore()
+        {
+            var standings = await footballLeagueDbContext.Standings.OrderByDescending(s => s.Score).ToListAsync();
+            return standings;
+        }
+
         public IList<Standing> GetAllWithPredicate(Expression<Func<Standing, bool>> predicate)
         {
             return footballLeagueDbContext.Standings.Where(predicate).ToList();

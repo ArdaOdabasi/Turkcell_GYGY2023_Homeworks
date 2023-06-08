@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FootballLeagueApp.DTOs.Requests.StadiumRequests;
 using FootballLeagueApp.DTOs.Responses.StadiumResponses;
 using FootballLeagueApp.Repositories.StadiumRepository;
 using FootballLeagueApp.Services.Extensions;
@@ -33,6 +34,12 @@ namespace FootballLeagueApp.Services.StadiumService
             var stadium = await _repository.GetAsync(id);
             var response = stadium.ConvertStadiumToDisplayResponses(_mapper);
             return response;
+        }
+
+        public async Task CreateStadiumAsync(CreateNewStadiumRequest createNewStadiumRequest)
+        {
+            var stadium = _mapper.ConvertRequestToStadium(createNewStadiumRequest);
+            await _repository.CreateAsync(stadium);
         }
     }
 }

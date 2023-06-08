@@ -1,4 +1,5 @@
 ﻿using FootballLeagueApp.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace FootballLeagueApp.Repositories.StandingRepository
 {
     public interface IStandingRepository : IRepository<Standing>
     {
-    
+        Task<IEnumerable<Standing>> GetAllStandingsOrderedByScore();
     }
 }

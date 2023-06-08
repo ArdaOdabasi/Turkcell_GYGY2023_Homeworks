@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FootballLeagueApp.DTOs.Requests.StatisticRequests;
 using FootballLeagueApp.DTOs.Responses.StatisticResponses;
 using FootballLeagueApp.Repositories.StatisticRepository;
 using FootballLeagueApp.Services.Extensions;
@@ -33,6 +34,12 @@ namespace FootballLeagueApp.Services.StatisticService
             var statistic = await _repository.GetAsync(id);
             var response = statistic.ConvertStatisticToDisplayResponses(_mapper);
             return response;
+        }
+
+        public async Task CreateStatisticAsync(CreateNewStatisticRequest createNewStatisticRequest)
+        {
+            var statistic = _mapper.ConvertRequestToStatistic(createNewStatisticRequest);
+            await _repository.CreateAsync(statistic);
         }
     }
 }

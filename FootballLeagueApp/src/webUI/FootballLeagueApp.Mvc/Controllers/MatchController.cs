@@ -1,4 +1,6 @@
-﻿using FootballLeagueApp.DTOs.Responses.StadiumResponses;
+﻿using FootballLeagueApp.DTOs.Requests.MatchRequests;
+using FootballLeagueApp.DTOs.Requests.StadiumRequests;
+using FootballLeagueApp.DTOs.Responses.StadiumResponses;
 using FootballLeagueApp.DTOs.Responses.StatisticResponses;
 using FootballLeagueApp.DTOs.Responses.TeamResponses;
 using FootballLeagueApp.Entities;
@@ -7,11 +9,14 @@ using FootballLeagueApp.Services.MatchService;
 using FootballLeagueApp.Services.PlayerService;
 using FootballLeagueApp.Services.StadiumService;
 using FootballLeagueApp.Services.TeamService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Numerics;
 
 namespace FootballLeagueApp.Mvc.Controllers
 {
+    
     public class MatchController : Controller
     {
         private readonly ILogger<MatchController> _logger;
@@ -81,6 +86,42 @@ namespace FootballLeagueApp.Mvc.Controllers
             };
 
             return View(model);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Create()
+        {
+            ViewBag.Teams = await GetTeamsForSelectList();
+            ViewBag.Stadiums = await GetStadiumsForSelectList();
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(CreateNewMatchRequest request)
+        {
+            if (ModelState.IsValid)
+            {
+                await _matchService.CreateMatchAsync(request);
+                return RedirectToAction(nameof(Index));
+            }
+
+            ViewBag.Teams = await GetTeamsForSelectList();
+            ViewBag.Stadiums = await GetStadiumsForSelectList();
+            return View();
+        }
+
+        private async Task<IEnumerable<SelectListItem>> GetTeamsForSelectList()
+        {
+            var teams = await _teamService.GetAllTeams();
+            var selectList = teams.Select(c => new SelectListItem { Text = c.Name, Value = c.Id.ToString() }).ToList();
+            return selectList;
+        }
+
+        private async Task<IEnumerable<SelectListItem>> GetStadiumsForSelectList()
+        {
+            var stadiums = await _stadiumService.GetAllStadiums();
+            var selectList = stadiums.Select(c => new SelectListItem { Text = c.Name, Value = c.Id.ToString() }).ToList();
+            return selectList;
         }
     }
 }

@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -20,6 +21,9 @@ namespace FootballLeagueApp.Infrastructure.Data
         public DbSet<Match> Matches { get; set; }
         public DbSet<Standing> Standings { get; set; }
         public DbSet<Stadium> Stadiums { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<UserRole> UserRoles { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -36,6 +40,10 @@ namespace FootballLeagueApp.Infrastructure.Data
             RulesForStandingProperties(modelBuilder);
 
             RulesForStadiumProperties(modelBuilder);
+
+            RulesForUserProperties(modelBuilder);
+
+            RulesForRoleProperties(modelBuilder);
 
             modelBuilder.Entity<Team>().HasOne(t => t.Coach)
                                        .WithOne(c => c.Team)
@@ -81,8 +89,18 @@ namespace FootballLeagueApp.Infrastructure.Data
                                            .WithOne()
                                            .HasForeignKey<Standing>(s => s.TeamId)
                                            .OnDelete(DeleteBehavior.NoAction);
-        }
 
+            modelBuilder.Entity<UserRole>().HasKey(ur => new { ur.UserId, ur.RoleId });
+
+            modelBuilder.Entity<UserRole>().HasOne(ur => ur.User)
+                                           .WithMany(u => u.UserRoles)
+                                           .HasForeignKey(ur => ur.UserId);
+
+            modelBuilder.Entity<UserRole>().HasOne(ur => ur.Role)
+                                           .WithMany(u => u.UserRoles)
+                                           .HasForeignKey(ur => ur.RoleId);
+        }
+  
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Data Source=(localdb)\\mssqllocaldb;Initial Catalog=FootballLeague;Integrated Security=True");
@@ -164,6 +182,15 @@ namespace FootballLeagueApp.Infrastructure.Data
             modelBuilder.Entity<Match>().Property(m => m.Result)
                                         .IsRequired()
                                         .HasMaxLength(10);
+
+            modelBuilder.Entity<Match>().Property(m => m.HomeTeamId)
+                                        .IsRequired();
+
+            modelBuilder.Entity<Match>().Property(m => m.AwayTeamId)
+                                        .IsRequired();
+
+            modelBuilder.Entity<Match>().Property(m => m.StadiumId)
+                                        .IsRequired();
         }
 
         private static void RulesForStandingProperties(ModelBuilder modelBuilder)
@@ -185,6 +212,9 @@ namespace FootballLeagueApp.Infrastructure.Data
 
             modelBuilder.Entity<Standing>().Property(s => s.GoalsAgainst)
                                            .IsRequired();
+
+            modelBuilder.Entity<Standing>().Property(s => s.TeamId)
+                                           .IsRequired();
         }
 
         private static void RulesForStadiumProperties(ModelBuilder modelBuilder)
@@ -200,5 +230,31 @@ namespace FootballLeagueApp.Infrastructure.Data
                                           .IsRequired()
                                           .HasMaxLength(250);
         }
+
+        private void RulesForUserProperties(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>().Property(u => u.FirstName)
+                                       .IsRequired()
+                                       .HasMaxLength(100);
+
+            modelBuilder.Entity<User>().Property(u => u.LastName)
+                                       .IsRequired()
+                                       .HasMaxLength(100);
+
+            modelBuilder.Entity<User>().Property(u => u.UserName)
+                                       .IsRequired()
+                                       .HasMaxLength(100);
+
+            modelBuilder.Entity<User>().Property(u => u.Password)
+                                       .IsRequired()
+                                       .HasMaxLength(100);
+        }
+
+        private void RulesForRoleProperties(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Role>().Property(r => r.Name)
+                                       .IsRequired()
+                                       .HasMaxLength(100);
+        }     
     }
 }

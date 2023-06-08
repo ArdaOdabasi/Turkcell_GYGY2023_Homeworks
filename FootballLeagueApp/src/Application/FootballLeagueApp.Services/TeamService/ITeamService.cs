@@ -1,4 +1,5 @@
-﻿using FootballLeagueApp.DTOs.Responses.TeamResponses;
+﻿using FootballLeagueApp.DTOs.Requests.TeamRequests;
+using FootballLeagueApp.DTOs.Responses.TeamResponses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,6 @@ namespace FootballLeagueApp.Services.TeamService
     {
         Task<IEnumerable<TeamDisplayResponse>> GetAllTeams();
         Task<TeamDisplayResponse> GetTeamById(int id);
+        Task CreateTeamAsync(CreateNewTeamRequest createNewTeamRequest);
     }
 }

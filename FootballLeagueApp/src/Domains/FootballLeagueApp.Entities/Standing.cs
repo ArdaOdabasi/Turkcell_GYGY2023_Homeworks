@@ -22,7 +22,9 @@ namespace FootballLeagueApp.Entities
         public int GoalsFor { get; set; }
         [Required]
         public int GoalsAgainst { get; set; }
-        public Team? Team { get; set; }
-        public int? TeamId { get; set; }
+        [Required]
+        public Team Team { get; set; }
+        [Required]
+        public int TeamId { get; set; }
     }
 }

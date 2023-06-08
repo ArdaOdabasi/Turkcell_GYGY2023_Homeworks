@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FootballLeagueApp.DTOs.Requests.CoachRequests;
 using FootballLeagueApp.DTOs.Responses.CoachResponses;
 using FootballLeagueApp.Repositories.CoachRepository;
 using FootballLeagueApp.Services.Extensions;
@@ -26,6 +27,12 @@ namespace FootballLeagueApp.Services.CoachService
             var coaches = await _repository.GetAllAsync();
             var responses = coaches.ConvertCoachesToDisplayResponses(_mapper);
             return responses;
+        }
+
+        public async Task CreateCoachAsync(CreateNewCoachRequest createNewCoachRequest)
+        {
+            var coach = _mapper.ConvertRequestToCoach(createNewCoachRequest);
+            await _repository.CreateAsync(coach);
         }
     }
 }

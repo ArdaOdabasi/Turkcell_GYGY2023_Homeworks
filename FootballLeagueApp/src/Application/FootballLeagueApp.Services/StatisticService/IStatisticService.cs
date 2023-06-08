@@ -1,4 +1,5 @@
-﻿using FootballLeagueApp.DTOs.Responses.StatisticResponses;
+﻿using FootballLeagueApp.DTOs.Requests.StatisticRequests;
+using FootballLeagueApp.DTOs.Responses.StatisticResponses;
 using FootballLeagueApp.DTOs.Responses.TeamResponses;
 using System;
 using System.Collections.Generic;
@@ -12,5 +13,6 @@ namespace FootballLeagueApp.Services.StatisticService
     {
         Task<IEnumerable<StatisticDisplayResponse>> GetAllStatistics();
         Task<StatisticDisplayResponse> GetStatisticById(int id);
+        Task CreateStatisticAsync(CreateNewStatisticRequest createNewStatisticRequest);
     }
 }

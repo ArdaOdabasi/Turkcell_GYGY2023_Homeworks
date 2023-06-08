@@ -1,6 +1,7 @@
 using FootballLeagueApp.Infrastructure.Data;
 using FootballLeagueApp.Mvc.Extensions;
 using FootballLeagueApp.Services.Mappings;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,13 @@ builder.Services.AddSession(opt =>
 });
 
 builder.Services.AddInjections();
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(opt =>
+                {
+                    opt.LoginPath = "/User/Login";
+                    opt.AccessDeniedPath = "/User/AccessDenied";
+                });
 
 var app = builder.Build();
 
@@ -34,6 +42,7 @@ app.UseSession();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

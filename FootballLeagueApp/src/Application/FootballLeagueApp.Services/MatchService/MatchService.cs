@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FootballLeagueApp.DTOs.Requests.MatchRequests;
 using FootballLeagueApp.DTOs.Responses.MatchResponses;
 using FootballLeagueApp.Repositories.MatchRepository;
 using FootballLeagueApp.Services.Extensions;
@@ -26,6 +27,12 @@ namespace FootballLeagueApp.Services.MatchService
             var matches = await _repository.GetAllAsync();
             var responses = matches.ConvertMatchesToDisplayResponses(_mapper);
             return responses;
+        }
+
+        public async Task CreateMatchAsync(CreateNewMatchRequest createNewMatchRequest)
+        {
+            var match = _mapper.ConvertRequestToMatch(createNewMatchRequest);
+            await _repository.CreateAsync(match);
         }
     }
 }

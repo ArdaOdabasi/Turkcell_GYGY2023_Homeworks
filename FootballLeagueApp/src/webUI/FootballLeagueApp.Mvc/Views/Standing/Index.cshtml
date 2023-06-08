@@ -4,6 +4,13 @@
     var sequence = 1;
 }
 
+<div class="row">
+    <div class="col-md-9"></div>
+    <div class="col-md-3">
+        <a href="@Url.Action("Create", "Standing")" class="btn btn-primary">Puan Tablosuna Takım Ekle</a>
+    </div>
+</div>
+
 <table class="table">
     <thead>
         <tr>
@@ -20,7 +27,8 @@
     <tbody>
         @foreach (var team in Model.teams)
         {
-            @foreach (var standingDisplay in Model.standings)
+            var standingDisplay = Model.standings.FirstOrDefault(s => s.TeamId == team.Id);
+            if (standingDisplay != null)
             {
                 <tr>
                     <th scope="row">@sequence</th>
@@ -32,9 +40,8 @@
                     <td>@standingDisplay.GoalsFor</td>
                     <td>@standingDisplay.GoalsAgainst</td>
                 </tr>
-
-                sequence++;
             }
+            sequence++;
         }
     </tbody>
 </table>

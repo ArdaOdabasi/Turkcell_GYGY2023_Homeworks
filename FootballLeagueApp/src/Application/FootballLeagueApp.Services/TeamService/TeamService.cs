@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using FootballLeagueApp.DTOs.Requests.TeamRequests;
 using FootballLeagueApp.DTOs.Responses.TeamResponses;
+using FootballLeagueApp.Entities;
 using FootballLeagueApp.Repositories.TeamRepository;
 using FootballLeagueApp.Services.Extensions;
 using System;
@@ -33,6 +35,12 @@ namespace FootballLeagueApp.Services.TeamService
             var team = await _repository.GetAsync(id);
             var response = team.ConvertTeamToDisplayResponses(_mapper);
             return response;
+        }
+
+        public async Task CreateTeamAsync(CreateNewTeamRequest createNewTeamRequest)
+        {
+            var team = _mapper.ConvertRequestToTeam(createNewTeamRequest);
+            await _repository.CreateAsync(team);
         }
     }
 }

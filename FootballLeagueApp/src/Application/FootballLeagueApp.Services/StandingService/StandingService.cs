@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FootballLeagueApp.DTOs.Requests.StandingRequests;
 using FootballLeagueApp.DTOs.Responses.StandingResponses;
 using FootballLeagueApp.Repositories.StandingRepository;
 using FootballLeagueApp.Services.Extensions;
@@ -24,6 +25,19 @@ namespace FootballLeagueApp.Services.StandingService
         public async Task<IEnumerable<StandingDisplayResponse>> GetAllStandings()
         {
             var standings = await _repository.GetAllAsync();
+            var responses = standings.ConvertStandingsToDisplayResponses(_mapper);
+            return responses;
+        }
+
+        public async Task CreateStandingAsync(CreateNewStandingRequest createNewStandingRequest)
+        {
+            var standing = _mapper.ConvertRequestToStanding(createNewStandingRequest);
+            await _repository.CreateAsync(standing);
+        }
+
+        public async Task<IEnumerable<StandingDisplayResponse>> GetAllStandingsOrderedByScore()
+        {
+            var standings = await _repository.GetAllStandingsOrderedByScore();
             var responses = standings.ConvertStandingsToDisplayResponses(_mapper);
             return responses;
         }

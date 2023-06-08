@@ -10,8 +10,11 @@ namespace FootballLeagueApp.Entities
     public class Stadium : IEntity
     {
         public int Id { get; set; }
+        [Required]
         public string Name { get; set; } = string.Empty;
+        [Required]
         public int Capacity { get; set; }
+        [Required]
         public string Address { get; set; } = string.Empty;
         public Team? Team { get; set; }
         public int? TeamId { get; set; }

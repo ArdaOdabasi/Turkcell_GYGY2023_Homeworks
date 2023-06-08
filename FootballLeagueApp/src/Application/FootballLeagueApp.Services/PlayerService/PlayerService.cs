@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FootballLeagueApp.DTOs.Requests.PlayerRequests;
 using FootballLeagueApp.DTOs.Responses.PlayerResponses;
 using FootballLeagueApp.Repositories.PlayerRepository;
 using FootballLeagueApp.Services.Extensions;
@@ -33,6 +34,12 @@ namespace FootballLeagueApp.Services.PlayerService
             var players = await _repository.GetAllByNationalityAsync(nationality);
             var responses = players.ConvertPlayersToDisplayResponses(_mapper);
             return responses;
+        }
+
+        public async Task CreatePlayerAsync(CreateNewPlayerRequest createNewPlayerRequest)
+        {
+            var player = _mapper.ConvertRequestToPlayer(createNewPlayerRequest);
+            await _repository.CreateAsync(player);
         }
     }
 }

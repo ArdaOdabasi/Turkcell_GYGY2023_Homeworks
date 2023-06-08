@@ -1,0 +1,56 @@
+﻿@model FootballLeagueApp.DTOs.Requests.CoachRequests.CreateNewCoachRequest
+
+<h3>Antrenör Ekle</h3>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                Ad
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+                <br />
+            </div>
+            <div class="form-group">
+                Soyad
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+                <br />
+            </div>
+            <div class="form-group">
+                Yaş
+                <input asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+                <br />
+            </div>
+            <div class="form-group">
+                Uyruk
+                <input asp-for="Nationality" class="form-control" />
+                <span asp-validation-for="Nationality" class="text-danger"></span>
+                <br />
+            </div>
+            <div class="form-group">
+                Takımlar
+                <select asp-for="TeamId" class="form-control"  asp-items="ViewBag.Teams"  >
+                    <option hidden="" value="" disabled selected>Lütfen Takım Seçiniz</option>
+                </select>
+                <span asp-validation-for="TeamId" class="text-danger"></span>
+                <br />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Antrenör Ekle" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <br />
+    <a asp-controller="Coach" asp-action="Index">Antrenör Listesine Dön</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

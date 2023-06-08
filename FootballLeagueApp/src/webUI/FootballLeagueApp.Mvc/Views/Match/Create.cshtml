@@ -1,0 +1,75 @@
+﻿@model FootballLeagueApp.DTOs.Requests.MatchRequests.CreateNewMatchRequest
+
+<h3>Maç Ekle</h3>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                Tarih
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+                <br />
+            </div>
+            <div class="form-group">
+                Sonuç
+                <input asp-for="Result" class="form-control" />
+                <span asp-validation-for="Result" class="text-danger"></span>
+                <br />
+            </div>
+            <div class="form-group">
+                Ev Sahibi 
+                <select asp-for="HomeTeamId" class="form-control" asp-items="ViewBag.Teams" onchange="updateAwayTeamList()">
+                    <option hidden="" value="" disabled selected>Lütfen Ev Sahibi Takımı Seçiniz</option>
+                </select>
+                <span asp-validation-for="HomeTeamId" class="text-danger"></span>
+                <br />
+            </div>
+            <div class="form-group">
+                Deplasman 
+                <select asp-for="AwayTeamId" class="form-control" asp-items="ViewBag.Teams" onchange="updateHomeTeamList()">
+                    <option hidden="" value="" disabled selected>Lütfen Deplasman Takımı Seçiniz</option>
+                </select>
+                <span asp-validation-for="AwayTeamId" class="text-danger"></span>
+                <br />
+            </div>
+            <div class="form-group">
+                Stadyum
+                <select asp-for="StadiumId" class="form-control" asp-items="ViewBag.Stadiums">
+                    <option hidden="" value="" disabled selected>Lütfen Stadyum Seçiniz</option>
+                </select>
+                <span asp-validation-for="StadiumId" class="text-danger"></span>
+                <br />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Maç Ekle" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <br />
+    <a asp-controller="Match" asp-action="Index">Maç Listesine Dön</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        function updateAwayTeamList() {
+            var homeTeamId = $("#HomeTeamId").val();
+            $("#AwayTeamId option").each(function () {
+                if ($(this).val() == homeTeamId) {
+                    $(this).hide();
+                } else {
+                    $(this).show();
+                }
+            });
+        }
+    </script>
+}

@@ -14,11 +14,17 @@ namespace FootballLeagueApp.Entities
         public DateTime Date { get; set; }
         [Required]
         public string Result { get; set; } = string.Empty;
-        public Team? HomeTeam { get; set; }
-        public int? HomeTeamId { get; set; }
-        public Team? AwayTeam { get; set; }
-        public int? AwayTeamId { get; set; }
-        public Stadium? Stadium { get; set; }
-        public int? StadiumId { get; set; }
+        [Required]
+        public Team HomeTeam { get; set; }
+        [Required]
+        public int HomeTeamId { get; set; }
+        [Required]
+        public Team AwayTeam { get; set; }
+        [Required]
+        public int AwayTeamId { get; set; }
+        [Required]
+        public Stadium Stadium { get; set; }
+        [Required]
+        public int StadiumId { get; set; }
     }
 }

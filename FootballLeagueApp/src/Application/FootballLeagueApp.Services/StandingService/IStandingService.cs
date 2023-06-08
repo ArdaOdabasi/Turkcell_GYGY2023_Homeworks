@@ -1,4 +1,5 @@
-﻿using FootballLeagueApp.DTOs.Responses.StandingResponses;
+﻿using FootballLeagueApp.DTOs.Requests.StandingRequests;
+using FootballLeagueApp.DTOs.Responses.StandingResponses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,7 @@ namespace FootballLeagueApp.Services.StandingService
     public interface IStandingService
     {
         Task<IEnumerable<StandingDisplayResponse>> GetAllStandings();
+        Task CreateStandingAsync(CreateNewStandingRequest createNewStandingRequest);
+        Task<IEnumerable<StandingDisplayResponse>> GetAllStandingsOrderedByScore();
     }
 }

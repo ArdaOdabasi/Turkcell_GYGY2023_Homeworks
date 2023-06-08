@@ -6,6 +6,7 @@ using FootballLeagueApp.Repositories.StadiumRepository;
 using FootballLeagueApp.Repositories.StandingRepository;
 using FootballLeagueApp.Repositories.StatisticRepository;
 using FootballLeagueApp.Repositories.TeamRepository;
+using FootballLeagueApp.Repositories.UserRepository;
 using FootballLeagueApp.Services.CoachService;
 using FootballLeagueApp.Services.MatchService;
 using FootballLeagueApp.Services.PlayerService;
@@ -13,6 +14,7 @@ using FootballLeagueApp.Services.StadiumService;
 using FootballLeagueApp.Services.StandingService;
 using FootballLeagueApp.Services.StatisticService;
 using FootballLeagueApp.Services.TeamService;
+using FootballLeagueApp.Services.UserService;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 
@@ -37,6 +39,8 @@ namespace FootballLeagueApp.Mvc.Extensions
             services.AddScoped<IStatisticService, StatisticService>();
             services.AddScoped<IStatisticRepository, EFStatisticRepository>();
             services.AddDbContext<FootballLeagueDbContext>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IUserRepository, EFUserRepository>();
 
             return services;
         }
