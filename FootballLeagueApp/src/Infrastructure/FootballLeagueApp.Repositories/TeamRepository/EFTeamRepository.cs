@@ -97,9 +97,7 @@ namespace FootballLeagueApp.Repositories.TeamRepository
 
         public async Task UpdateStadiumIdAsync(int teamId, int newStadiumId)
         {
-            var teams = await footballLeagueDbContext.Teams
-                .Where(t => t.StadiumId == newStadiumId || t.Id == teamId)
-                .ToListAsync();
+            var teams = await footballLeagueDbContext.Teams.Where(t => t.StadiumId == newStadiumId || t.Id == teamId).ToListAsync();
 
             foreach (var team in teams)
             {
@@ -125,9 +123,7 @@ namespace FootballLeagueApp.Repositories.TeamRepository
     
         public async Task UpdateCoachIdAsync(int teamId, int newCoachId)
         {
-            var coaches = await footballLeagueDbContext.Coaches
-                .Where(c => c.TeamId == newCoachId || c.TeamId == teamId)
-                .ToListAsync();
+            var coaches = await footballLeagueDbContext.Coaches.Where(c => c.TeamId == newCoachId || c.TeamId == teamId).ToListAsync();
 
             foreach (var coach in coaches)
             {

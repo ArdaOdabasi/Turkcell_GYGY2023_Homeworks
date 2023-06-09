@@ -16,5 +16,6 @@ namespace FootballLeagueApp.Services.RoleService
         Task<bool> RoleIsExistsAsync(int roleId);
         Task UpdateRoleAsync(UpdateRoleRequest updateRoleRequest);
         Task<UpdateRoleRequest> GetRoleForUpdate(int id);
+        Task DeleteAsync(int id);
     }
 }

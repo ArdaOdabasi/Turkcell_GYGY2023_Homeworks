@@ -58,5 +58,10 @@ namespace FootballLeagueApp.Services.UserService
             var user = await _repository.GetAsync(id);
             return _mapper.ConvertUserToUpdateRequest(user);
         }
+
+        public async Task DeleteAsync(int id)
+        {
+            await _repository.DeleteAsync(id);
+        }
     }
 }

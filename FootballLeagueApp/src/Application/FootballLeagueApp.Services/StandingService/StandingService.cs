@@ -60,5 +60,10 @@ namespace FootballLeagueApp.Services.StandingService
             var standing = await _repository.GetAsync(id);
             return _mapper.ConvertStandingToUpdateRequest(standing);
         }
+
+        public async Task DeleteAsync(int id)
+        {
+            await _repository.DeleteAsync(id);
+        }
     }
 }

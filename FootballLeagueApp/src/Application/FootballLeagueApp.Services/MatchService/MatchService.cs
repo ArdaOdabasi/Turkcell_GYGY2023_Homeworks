@@ -53,5 +53,10 @@ namespace FootballLeagueApp.Services.MatchService
             var match = await _repository.GetAsync(id);
             return _mapper.ConvertMatchToUpdateRequest(match);
         }
+
+        public async Task DeleteAsync(int id)
+        {
+            await _repository.DeleteAsync(id);
+        }
     }
 }

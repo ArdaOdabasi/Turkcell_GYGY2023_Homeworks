@@ -17,5 +17,6 @@ namespace FootballLeagueApp.Services.UserService
         Task<bool> UserIsExistsAsync(int userId);
         Task UpdateUserAsync(UpdateUserRequest updateUserRequest);
         Task<UpdateUserRequest> GetUserForUpdate(int id);
+        Task DeleteAsync(int id);
     }
 }

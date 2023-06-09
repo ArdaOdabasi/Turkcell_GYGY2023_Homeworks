@@ -87,6 +87,11 @@ namespace FootballLeagueApp.Services.StadiumService
         {
             var stadium = await _repository.GetAsync(id);
             return _mapper.ConvertStadiumToUpdateRequest(stadium);
-        }     
+        }
+
+        public async Task DeleteAsync(int id)
+        {
+            await _repository.DeleteAsync(id);
+        }
     }
 }

@@ -105,6 +105,19 @@ namespace FootballLeagueApp.Mvc.Controllers
             return NotFound();
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Delete()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _teamService.DeleteAsync(id);
+            return RedirectToAction(nameof(Index));
+        }
+
         private async Task<IEnumerable<SelectListItem>> GetCoachesForSelectList()
         {
             var coaches = await _coachService.GetCoachesWithoutTeamAsync();

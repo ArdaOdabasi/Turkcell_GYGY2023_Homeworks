@@ -23,5 +23,6 @@ namespace FootballLeagueApp.Services.StadiumService
         Task<bool> StadiumIsExistsAsync(int stadiumId);
         Task UpdateStadiumAsync(UpdateStadiumRequest updateStadiumRequest);
         Task<UpdateStadiumRequest> GetStadiumForUpdate(int id);
+        Task DeleteAsync(int id);
     }
 }

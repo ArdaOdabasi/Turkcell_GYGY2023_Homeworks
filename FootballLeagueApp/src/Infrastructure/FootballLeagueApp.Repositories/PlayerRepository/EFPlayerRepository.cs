@@ -107,9 +107,7 @@ namespace FootballLeagueApp.Repositories.PlayerRepository
 
         public async Task UpdateStatisticIdAsync(int playerId, int newStatisticId)
         {
-            var players = await footballLeagueDbContext.Players
-                .Where(p => p.StatisticId == newStatisticId || p.Id == playerId)
-                .ToListAsync();
+            var players = await footballLeagueDbContext.Players.Where(p => p.StatisticId == newStatisticId || p.Id == playerId).ToListAsync();
 
             foreach (var player in players)
             {

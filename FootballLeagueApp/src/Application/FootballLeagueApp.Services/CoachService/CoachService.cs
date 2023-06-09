@@ -80,6 +80,11 @@ namespace FootballLeagueApp.Services.CoachService
         {
             var coach = await _repository.GetAsync(id);
             return _mapper.ConvertCoachToUpdateRequest(coach);         
-        }    
+        }
+
+        public async Task DeleteAsync(int id)
+        {
+            await _repository.DeleteAsync(id);
+        }
     }
 }

@@ -109,6 +109,11 @@ namespace FootballLeagueApp.Services.TeamService
         {
             var team = await _repository.GetAsync(id);
             return _mapper.ConvertTeamToUpdateRequest(team);
-        }     
+        }
+
+        public async Task DeleteAsync(int id)
+        {
+            await _repository.DeleteAsync(id);
+        }
     }
 }

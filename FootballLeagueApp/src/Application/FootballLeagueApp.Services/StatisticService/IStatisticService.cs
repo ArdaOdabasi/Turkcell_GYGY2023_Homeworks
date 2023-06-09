@@ -23,5 +23,6 @@ namespace FootballLeagueApp.Services.StatisticService
         Task<bool> StatisticIsExistsAsync(int statisticId);
         Task UpdateStatisticAsync(UpdateStatisticRequest updateStatisticRequest);
         Task<UpdateStatisticRequest> GetStatisticForUpdate(int id);
+        Task DeleteAsync(int id);
     }
 }

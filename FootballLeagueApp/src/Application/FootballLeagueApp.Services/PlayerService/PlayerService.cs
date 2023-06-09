@@ -80,6 +80,11 @@ namespace FootballLeagueApp.Services.PlayerService
         {
             var player = await _repository.GetAsync(id);
             return _mapper.ConvertPlayerToUpdateRequest(player);
-        }       
+        }
+
+        public async Task DeleteAsync(int id)
+        {
+            await _repository.DeleteAsync(id);
+        }
     }
 }

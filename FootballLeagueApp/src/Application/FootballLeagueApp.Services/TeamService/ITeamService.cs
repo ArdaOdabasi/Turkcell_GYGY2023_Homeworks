@@ -26,5 +26,6 @@ namespace FootballLeagueApp.Services.TeamService
         Task<bool> TeamIsExistsAsync(int teamId);
         Task UpdateTeamAsync(UpdateTeamRequest updateTeamRequest);
         Task<UpdateTeamRequest> GetTeamForUpdate(int id);
+        Task DeleteAsync(int id);
     }
 }

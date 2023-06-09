@@ -87,6 +87,11 @@ namespace FootballLeagueApp.Services.StatisticService
         {
             var statistic = await _repository.GetAsync(id);
             return _mapper.ConvertStatisticToUpdateRequest(statistic);
-        }     
+        }
+
+        public async Task DeleteAsync(int id)
+        {
+            await _repository.DeleteAsync(id);
+        }
     }
 }

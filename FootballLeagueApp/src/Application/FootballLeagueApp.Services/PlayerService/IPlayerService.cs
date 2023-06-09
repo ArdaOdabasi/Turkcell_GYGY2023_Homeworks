@@ -21,5 +21,6 @@ namespace FootballLeagueApp.Services.PlayerService
         Task<bool> PlayerIsExistsAsync(int playerId);
         Task UpdatePlayerAsync(UpdatePlayerRequest updatePlayerRequest);
         Task<UpdatePlayerRequest> GetPlayerForUpdate(int id);
+        Task DeleteAsync(int id);
     }
 }

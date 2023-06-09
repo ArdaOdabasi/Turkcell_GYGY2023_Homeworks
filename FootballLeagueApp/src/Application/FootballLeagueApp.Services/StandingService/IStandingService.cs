@@ -17,5 +17,6 @@ namespace FootballLeagueApp.Services.StandingService
         Task<bool> StandingIsExistsAsync(int standingId);
         Task UpdateStandingAsync(UpdateStandingRequest updateStandingRequest);
         Task<UpdateStandingRequest> GetStandingForUpdate(int id);
+        Task DeleteAsync(int id);
     }
 }

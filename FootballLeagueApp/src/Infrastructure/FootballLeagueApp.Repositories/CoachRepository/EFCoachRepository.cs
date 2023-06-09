@@ -110,9 +110,7 @@ namespace FootballLeagueApp.Repositories.CoachRepository
 
         public async Task UpdateTeamIdAsync(int coachId, int newTeamId)
         {
-            var coaches = await footballLeagueDbContext.Coaches
-                .Where(c => c.TeamId == newTeamId || c.Id == coachId)
-                .ToListAsync();
+            var coaches = await footballLeagueDbContext.Coaches.Where(c => c.TeamId == newTeamId || c.Id == coachId).ToListAsync();
 
             foreach (var coach in coaches)
             {

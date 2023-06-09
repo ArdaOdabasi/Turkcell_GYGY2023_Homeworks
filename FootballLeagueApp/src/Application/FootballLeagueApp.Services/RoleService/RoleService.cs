@@ -53,5 +53,10 @@ namespace FootballLeagueApp.Services.RoleService
             var role = await _repository.GetAsync(id);
             return _mapper.ConvertRoleToUpdateRequest(role);
         }
+
+        public async Task DeleteAsync(int id)
+        {
+            await _repository.DeleteAsync(id);
+        }
     }
 }

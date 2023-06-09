@@ -16,5 +16,6 @@ namespace FootballLeagueApp.Services.MatchService
         Task<bool> MatchIsExistsAsync(int matchId);
         Task UpdateMatchAsync(UpdateMatchRequest updateMatchRequest);
         Task<UpdateMatchRequest> GetMatchForUpdate(int id);
+        Task DeleteAsync(int id);
     }
 }

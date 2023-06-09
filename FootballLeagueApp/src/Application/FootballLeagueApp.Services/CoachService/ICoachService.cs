@@ -22,5 +22,6 @@ namespace FootballLeagueApp.Services.CoachService
         Task<bool> CoachIsExistsAsync(int coachId);
         Task UpdateCoachAsync(UpdateCoachRequest updateCoachRequest);
         Task<UpdateCoachRequest> GetCoachForUpdate(int id);
+        Task DeleteAsync(int id);
     }
 }
