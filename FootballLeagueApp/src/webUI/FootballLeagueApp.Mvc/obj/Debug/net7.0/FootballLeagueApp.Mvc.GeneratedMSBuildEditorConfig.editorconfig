@@ -28,6 +28,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/pi/source/repos/Turkcell Geleceği Yazanlar/Assignments/Turkcell_GYGY2023_Homeworks/FootballLeagueApp/src/webUI/FootballLeagueApp.Mvc/Views/Home/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/pi/source/repos/Turkcell Geleceği Yazanlar/Assignments/Turkcell_GYGY2023_Homeworks/FootballLeagueApp/src/webUI/FootballLeagueApp.Mvc/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -38,6 +42,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/pi/source/repos/Turkcell Geleceği Yazanlar/Assignments/Turkcell_GYGY2023_Homeworks/FootballLeagueApp/src/webUI/FootballLeagueApp.Mvc/Views/Match/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pi/source/repos/Turkcell Geleceği Yazanlar/Assignments/Turkcell_GYGY2023_Homeworks/FootballLeagueApp/src/webUI/FootballLeagueApp.Mvc/Views/Player/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWVyXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/pi/source/repos/Turkcell Geleceği Yazanlar/Assignments/Turkcell_GYGY2023_Homeworks/FootballLeagueApp/src/webUI/FootballLeagueApp.Mvc/Views/Player/Index.cshtml]
@@ -70,6 +78,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/pi/source/repos/Turkcell Geleceği Yazanlar/Assignments/Turkcell_GYGY2023_Homeworks/FootballLeagueApp/src/webUI/FootballLeagueApp.Mvc/Views/Standing/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhbmRpbmdcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pi/source/repos/Turkcell Geleceği Yazanlar/Assignments/Turkcell_GYGY2023_Homeworks/FootballLeagueApp/src/webUI/FootballLeagueApp.Mvc/Views/User/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxBY2Nlc3NEZW5pZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/pi/source/repos/Turkcell Geleceği Yazanlar/Assignments/Turkcell_GYGY2023_Homeworks/FootballLeagueApp/src/webUI/FootballLeagueApp.Mvc/Views/User/Login.cshtml]

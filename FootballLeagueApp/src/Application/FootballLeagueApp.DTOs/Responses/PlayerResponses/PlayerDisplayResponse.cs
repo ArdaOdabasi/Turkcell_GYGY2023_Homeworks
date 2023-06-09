@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FootballLeagueApp.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -15,5 +16,6 @@ namespace FootballLeagueApp.DTOs.Responses.PlayerResponses
         public int Age { get; set; }
         public string Position { get; set; } = string.Empty;
         public string Nationality { get; set; } = string.Empty;
+        public int? TeamId { get; set; }
     }
 }

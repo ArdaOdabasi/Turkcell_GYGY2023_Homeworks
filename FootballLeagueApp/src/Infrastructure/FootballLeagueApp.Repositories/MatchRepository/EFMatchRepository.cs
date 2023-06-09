@@ -47,7 +47,7 @@ namespace FootballLeagueApp.Repositories.MatchRepository
 
         public Match? Get(int id)
         {
-            return footballLeagueDbContext.Matches.SingleOrDefault(x => x.Id == id);
+            return footballLeagueDbContext.Matches.SingleOrDefault(m => m.Id == id);
         }
 
         public IList<Match?> GetAll()
@@ -67,7 +67,12 @@ namespace FootballLeagueApp.Repositories.MatchRepository
 
         public async Task<Match?> GetAsync(int id)
         {
-            return await footballLeagueDbContext.Matches.FirstOrDefaultAsync(c => c.Id == id);
+            return await footballLeagueDbContext.Matches.FirstOrDefaultAsync(m => m.Id == id);
+        }
+
+        public async Task<bool> IsExistsAsync(int id)
+        {
+            return await footballLeagueDbContext.Matches.AnyAsync(m => m.Id == id);
         }
 
         public void Update(Match entity)

@@ -34,7 +34,7 @@ namespace FootballLeagueApp.Mvc.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = await _userService.ValidateUser(userLogin.UserName, userLogin.Password);
+                var user = await _userService.ValidateUserAsync(userLogin.UserName, userLogin.Password);
                 if (user != null)
                 {
                     Claim[] claims = new Claim[]

@@ -47,7 +47,7 @@ namespace FootballLeagueApp.Repositories.UserRepository
 
         public User? Get(int id)
         {
-            return footballLeagueDbContext.Users.SingleOrDefault(x => x.Id == id);
+            return footballLeagueDbContext.Users.SingleOrDefault(u => u.Id == id);
         }
 
         public IList<User?> GetAll()
@@ -67,7 +67,12 @@ namespace FootballLeagueApp.Repositories.UserRepository
 
         public async Task<User?> GetAsync(int id)
         {
-            return await footballLeagueDbContext.Users.FirstOrDefaultAsync(c => c.Id == id);
+            return await footballLeagueDbContext.Users.FirstOrDefaultAsync(u => u.Id == id);
+        }
+
+        public async Task<bool> IsExistsAsync(int id)
+        {
+            return await footballLeagueDbContext.Users.AnyAsync(u => u.Id == id);
         }
 
         public void Update(User entity)

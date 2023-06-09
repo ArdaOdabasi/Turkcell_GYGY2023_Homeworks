@@ -47,7 +47,7 @@ namespace FootballLeagueApp.Repositories.RoleRepository
 
         public Role? Get(int id)
         {
-            return footballLeagueDbContext.Roles.SingleOrDefault(x => x.Id == id);
+            return footballLeagueDbContext.Roles.SingleOrDefault(r => r.Id == id);
         }
 
         public IList<Role?> GetAll()
@@ -67,7 +67,12 @@ namespace FootballLeagueApp.Repositories.RoleRepository
 
         public async Task<Role?> GetAsync(int id)
         {
-            return await footballLeagueDbContext.Roles.FirstOrDefaultAsync(c => c.Id == id);
+            return await footballLeagueDbContext.Roles.FirstOrDefaultAsync(r => r.Id == id);
+        }
+
+        public async Task<bool> IsExistsAsync(int id)
+        {
+            return await footballLeagueDbContext.Roles.AnyAsync(r => r.Id == id);
         }
 
         public void Update(Role entity)

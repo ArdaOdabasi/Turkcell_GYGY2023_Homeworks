@@ -23,14 +23,14 @@ namespace FootballLeagueApp.Services.UserService
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<UserDisplayResponse>> GetAllUsers()
+        public async Task<IEnumerable<UserDisplayResponse>> GetAllUsersAsync()
         {
             var users = await _repository.GetAllAsync();
             var responses = users.ConvertUsersToDisplayResponses(_mapper);
             return responses;
         }
 
-        public async Task<User?> ValidateUser(string username, string password)
+        public async Task<User?> ValidateUserAsync(string username, string password)
         {
             var users = await _repository.GetAllAsync();
             return users.SingleOrDefault(u => u.UserName == username && u.Password == password);
@@ -40,6 +40,23 @@ namespace FootballLeagueApp.Services.UserService
         {
             var user = _mapper.ConvertRequestToUser(createNewUserRequest);
             await _repository.CreateAsync(user);
+        }
+
+        public async Task<bool> UserIsExistsAsync(int userId)
+        {
+            return await _repository.IsExistsAsync(userId);
+        }
+
+        public async Task UpdateUserAsync(UpdateUserRequest updateUserRequest)
+        {
+            var user = _mapper.ConvertUpdateRequestToUser(updateUserRequest);
+            await _repository.UpdateAsync(user);
+        }
+
+        public async Task<UpdateUserRequest> GetUserForUpdate(int id)
+        {
+            var user = await _repository.GetAsync(id);
+            return _mapper.ConvertUserToUpdateRequest(user);
         }
     }
 }

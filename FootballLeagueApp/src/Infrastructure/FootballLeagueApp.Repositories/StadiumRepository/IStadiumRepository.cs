@@ -9,6 +9,9 @@ namespace FootballLeagueApp.Repositories.StadiumRepository
 {
     public interface IStadiumRepository : IRepository<Stadium>
     {
-    
+        Task<int> CreateAndReturnIdAsync(Stadium entity);
+        Task<int> UpdateAndReturnIdAsync(Stadium entity);
+        Task<IEnumerable<Stadium?>> GetStadiumsWithoutTeamAsync();
+        Task UpdateTeamIdAsync(int stadiumId, int newTeamId);
     }
 }

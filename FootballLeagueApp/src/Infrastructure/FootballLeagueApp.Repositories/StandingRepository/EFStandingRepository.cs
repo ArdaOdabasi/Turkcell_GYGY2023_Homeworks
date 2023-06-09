@@ -47,7 +47,7 @@ namespace FootballLeagueApp.Repositories.StandingRepository
 
         public Standing? Get(int id)
         {
-            return footballLeagueDbContext.Standings.SingleOrDefault(x => x.Id == id);
+            return footballLeagueDbContext.Standings.SingleOrDefault(s => s.Id == id);
         }
 
         public IList<Standing?> GetAll()
@@ -60,7 +60,7 @@ namespace FootballLeagueApp.Repositories.StandingRepository
             return await footballLeagueDbContext.Standings.ToListAsync();
         }
 
-        public async Task<IEnumerable<Standing>> GetAllStandingsOrderedByScore()
+        public async Task<IEnumerable<Standing>> GetAllStandingsOrderedByScoreAsync()
         {
             var standings = await footballLeagueDbContext.Standings.OrderByDescending(s => s.Score).ToListAsync();
             return standings;
@@ -73,7 +73,12 @@ namespace FootballLeagueApp.Repositories.StandingRepository
 
         public async Task<Standing?> GetAsync(int id)
         {
-            return await footballLeagueDbContext.Standings.FirstOrDefaultAsync(c => c.Id == id);
+            return await footballLeagueDbContext.Standings.FirstOrDefaultAsync(s => s.Id == id);
+        }
+
+        public async Task<bool> IsExistsAsync(int id)
+        {
+            return await footballLeagueDbContext.Standings.AnyAsync(s => s.Id == id);
         }
 
         public void Update(Standing entity)

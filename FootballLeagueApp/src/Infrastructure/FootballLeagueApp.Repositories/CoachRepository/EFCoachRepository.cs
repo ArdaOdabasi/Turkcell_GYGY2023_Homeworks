@@ -25,6 +25,14 @@ namespace FootballLeagueApp.Repositories.CoachRepository
             footballLeagueDbContext.SaveChangesAsync();
         }
 
+        public async Task<int> CreateAndReturnIdAsync(Coach entity)
+        {
+            await footballLeagueDbContext.Coaches.AddAsync(entity);
+            await footballLeagueDbContext.SaveChangesAsync();
+
+            return entity.Id;
+        }
+
         public async Task CreateAsync(Coach entity)
         {
             await footballLeagueDbContext.Coaches.AddAsync(entity);
@@ -47,7 +55,7 @@ namespace FootballLeagueApp.Repositories.CoachRepository
 
         public Coach? Get(int id)
         {
-            return footballLeagueDbContext.Coaches.SingleOrDefault(x => x.Id == id);
+            return footballLeagueDbContext.Coaches.SingleOrDefault(c => c.Id == id);
         }
 
         public IList<Coach?> GetAll()
@@ -70,16 +78,49 @@ namespace FootballLeagueApp.Repositories.CoachRepository
             return await footballLeagueDbContext.Coaches.FirstOrDefaultAsync(c => c.Id == id);
         }
 
+        public async Task<IEnumerable<Coach?>> GetCoachesWithoutTeamAsync()
+        {
+            return await footballLeagueDbContext.Coaches.Where(c => c.TeamId == null).ToListAsync();
+        }
+
+        public async Task<bool> IsExistsAsync(int id)
+        {
+            return await footballLeagueDbContext.Coaches.AnyAsync(c => c.Id == id);
+        }
+
         public void Update(Coach entity)
         {
             footballLeagueDbContext.Coaches.Update(entity);
             footballLeagueDbContext.SaveChanges();
         }
-
+   
         public async Task UpdateAsync(Coach entity)
         {
             footballLeagueDbContext.Coaches.Update(entity);
             await footballLeagueDbContext.SaveChangesAsync();
         }
+
+        public async Task<int> UpdateAndReturnIdAsync(Coach entity)
+        {
+            footballLeagueDbContext.Coaches.Update(entity);
+            await footballLeagueDbContext.SaveChangesAsync();
+
+            return entity.Id;
+        }
+
+        public async Task UpdateTeamIdAsync(int coachId, int newTeamId)
+        {
+            var coaches = await footballLeagueDbContext.Coaches
+                .Where(c => c.TeamId == newTeamId || c.Id == coachId)
+                .ToListAsync();
+
+            foreach (var coach in coaches)
+            {
+                coach.TeamId = coach.Id == coachId ? newTeamId : null;
+            }
+
+            await footballLeagueDbContext.SaveChangesAsync();
+        }
+
     }
 }

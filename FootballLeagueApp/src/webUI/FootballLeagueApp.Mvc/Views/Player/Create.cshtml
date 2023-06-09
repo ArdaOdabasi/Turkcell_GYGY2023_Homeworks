@@ -1,0 +1,108 @@
+﻿@model FootballLeagueApp.Mvc.Models.CreateNewPlayerAndStatistic
+
+<h3>Oyuncu Ekle</h3>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label for="FirstName">Ad</label>
+                <input asp-for="createNewPlayerRequest.FirstName" class="form-control" />
+                <span asp-validation-for="createNewPlayerRequest.FirstName" class="text-danger"></span>
+                <br />
+            </div>
+
+            <div class="form-group">
+                <label for="LastName">Soyad</label>
+                <input asp-for="createNewPlayerRequest.LastName" class="form-control" />
+                <span asp-validation-for="createNewPlayerRequest.LastName" class="text-danger"></span>
+                <br />
+            </div>
+
+            <div class="form-group">
+                <label for="Age">Yaş</label>
+                <input asp-for="createNewPlayerRequest.Age" class="form-control" />
+                <span asp-validation-for="createNewPlayerRequest.Age" class="text-danger"></span>
+                <br />
+            </div>
+
+            <div class="form-group">
+                <label for="Position">Pozisyon</label>
+                <input asp-for="createNewPlayerRequest.Position" class="form-control" />
+                <span asp-validation-for="createNewPlayerRequest.Position" class="text-danger"></span>
+                <br />
+            </div>
+
+            <div class="form-group">
+                <label for="Nationality">Uyruk</label>
+                <input asp-for="createNewPlayerRequest.Nationality" class="form-control" />
+                <span asp-validation-for="createNewPlayerRequest.Nationality" class="text-danger"></span>
+                <br />
+            </div>
+
+            <div class="form-group">
+                <label for="Match">Maç Sayısı</label>
+                <input asp-for="createNewStatisticRequest.Match" class="form-control" />
+                <span asp-validation-for="createNewStatisticRequest.Match" class="text-danger"></span>
+                <br />
+            </div>
+
+            <div class="form-group">
+                <label for="Goal">Gol Sayısı</label>
+                <input asp-for="createNewStatisticRequest.Goal" class="form-control" />
+                <span asp-validation-for="createNewStatisticRequest.Goal" class="text-danger"></span>
+                <br />
+            </div>
+
+            <div class="form-group">
+                <label for="Assist">Asist Sayısı</label>
+                <input asp-for="createNewStatisticRequest.Assist" class="form-control" />
+                <span asp-validation-for="createNewStatisticRequest.Assist" class="text-danger"></span>
+                <br />
+            </div>
+
+            <div class="form-group">
+                <label for="YellowCard">Sarı Kart Sayısı</label>
+                <input asp-for="createNewStatisticRequest.YellowCard" class="form-control" />
+                <span asp-validation-for="createNewStatisticRequest.YellowCard" class="text-danger"></span>
+                <br />
+            </div>
+
+            <div class="form-group">
+                <label for="RedCard">Kırmızı Kart Sayısı</label>
+                <input asp-for="createNewStatisticRequest.RedCard" class="form-control" />
+                <span asp-validation-for="createNewStatisticRequest.RedCard" class="text-danger"></span>
+                <br />
+            </div>
+
+            <div class="form-group">
+                Takımlar
+                <select asp-for="createNewPlayerRequest.TeamId" class="form-control" asp-items="ViewBag.Teams">
+                    <option hidden="" value="" disabled selected>Lütfen Takım Seçiniz</option>
+                </select>
+                <span asp-validation-for="createNewPlayerRequest.TeamId" class="text-danger"></span>
+                <br />
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Oyuncu Ekle" class="btn btn-primary" />
+                <br />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <br />
+    <a asp-controller="Player" asp-action="Index">Oyuncu Listesine Dön</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -48,6 +48,15 @@ namespace FootballLeagueApp.Services.Mappings
             CreateMap<CreateNewStadiumRequest, Stadium>();
             CreateMap<CreateNewUserRequest, User>();
             CreateMap<CreateNewRoleRequest, Role>();
+            CreateMap<UpdateTeamRequest, Team>().ReverseMap();
+            CreateMap<UpdatePlayerRequest, Player>().ReverseMap();
+            CreateMap<UpdateStatisticRequest, Statistic>().ReverseMap();
+            CreateMap<UpdateCoachRequest, Coach>().ReverseMap();
+            CreateMap<UpdateMatchRequest, Match>().ReverseMap();
+            CreateMap<UpdateStandingRequest, Standing>().ReverseMap();
+            CreateMap<UpdateStadiumRequest, Stadium>().ReverseMap();
+            CreateMap<UpdateUserRequest, User>().ReverseMap();
+            CreateMap<UpdateRoleRequest, Role>().ReverseMap();
         }
     }
 }

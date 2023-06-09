@@ -9,6 +9,9 @@ namespace FootballLeagueApp.Repositories.CoachRepository
 {
     public interface ICoachRepository : IRepository<Coach>
     {
-    
+        Task<IEnumerable<Coach?>> GetCoachesWithoutTeamAsync();
+        Task UpdateTeamIdAsync(int coachId, int newTeamId);
+        Task<int> CreateAndReturnIdAsync(Coach entity);
+        Task<int> UpdateAndReturnIdAsync(Coach entity);
     }
 }

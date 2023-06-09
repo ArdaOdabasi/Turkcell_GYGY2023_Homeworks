@@ -5,12 +5,23 @@
     var statistics = Model.statistics;
 }
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-10"></div>
-        <div class="col-md-2">@await Component.InvokeAsync("ComboBox")</div>
+<div class="row">
+    <div class="col-md-9"></div>
+    <div class="col-md-3">
+        <a href="@Url.Action("Create", "Player")" class="btn btn-primary">Oyuncu Ekle</a>
     </div>
 </div>
+
+<br />
+
+<div class="row">
+    <div class="col-md-9"></div>
+    <div class="col-md-3">
+        @await Component.InvokeAsync("ComboBox")
+    </div>
+</div>
+
+<br />
 
 <table class="table">
     <thead>
@@ -21,6 +32,7 @@
             <th scope="col">Yaş</th>
             <th scope="col">Pozisyon</th>
             <th scope="col">Uyruk</th>
+            <th scope="col">Takım</th>
             <th scope="col">Maç</th>
             <th scope="col">Gol</th>
             <th scope="col">Asist</th>
@@ -38,11 +50,12 @@
                 <td>@player.Age</td>
                 <td>@player.Position</td>
                 <td>@player.Nationality</td>
+                <td>@(player.TeamId.HasValue ? Model.teamNames[player.TeamId.Value] : "Takımı Yok")</td>
                 <td>@statistics[sequence - 1].Match</td>
                 <td>@statistics[sequence - 1].Goal</td>
                 <td>@statistics[sequence - 1].Assist</td>
                 <td>@statistics[sequence - 1].YellowCard</td>
-                <td>@statistics[sequence - 1].RedCard</td>    
+                <td>@statistics[sequence - 1].RedCard</td>
             </tr>
 
             sequence++;

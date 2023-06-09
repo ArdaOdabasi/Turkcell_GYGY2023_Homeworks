@@ -28,6 +28,7 @@ namespace FootballLeagueApp.Repositories
         void Delete(int id);
         Task DeleteAsync(int id);
 
+        Task<bool> IsExistsAsync(int id);
 
         IList<T> GetAllWithPredicate(Expression<Func<T, bool>> predicate);
     }

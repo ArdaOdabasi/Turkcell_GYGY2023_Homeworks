@@ -11,8 +11,11 @@ namespace FootballLeagueApp.Services.UserService
 {
     public interface IUserService
     {
-        Task<IEnumerable<UserDisplayResponse>> GetAllUsers();
-        Task<User?> ValidateUser(string username, string password);
+        Task<IEnumerable<UserDisplayResponse>> GetAllUsersAsync();
+        Task<User?> ValidateUserAsync(string username, string password);
         Task CreateUserAsync(CreateNewUserRequest createNewUserRequest);
+        Task<bool> UserIsExistsAsync(int userId);
+        Task UpdateUserAsync(UpdateUserRequest updateUserRequest);
+        Task<UpdateUserRequest> GetUserForUpdate(int id);
     }
 }

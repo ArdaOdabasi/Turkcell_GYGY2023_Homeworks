@@ -5,19 +5,9 @@
     </button>
     <ul class="dropdown-menu">
         <li><a asp-action="Index" asp-controller="Player" asp-route-id="" class="dropdown-item">Ülkeler</a></li>
-        @foreach (var item in Model)
+        @foreach (var nationality in Model.Select(item => item.Nationality).Distinct())
         {
-            <li><a asp-action="Index" asp-controller="Player" asp-route-id="@item.Nationality" class="dropdown-item">@item.Nationality</a></li>
+                <li><a asp-action="Index" asp-controller="Player" asp-route-id="@nationality" class="dropdown-item">@nationality</a></li>
         }
     </ul>
 </div>
-
-
-
-
-
-
-
-
-
-

@@ -23,14 +23,14 @@ namespace FootballLeagueApp.Mvc.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var stadiums = await _stadiumService.GetAllStadiums();
+            var stadiums = await _stadiumService.GetAllStadiumsAsync();
             return View(stadiums);
         }
 
         [HttpGet]
         public async Task<IActionResult> Create()
         {
-            ViewBag.Teams = await GetTeamsForSelectList();         
+            ViewBag.Teams = await GetTeamsForSelectList();
             return View();
         }
 
@@ -39,7 +39,13 @@ namespace FootballLeagueApp.Mvc.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _stadiumService.CreateStadiumAsync(request);
+                int stadiumId = await _stadiumService.CreateAndReturnIdAsync(request);
+
+                if (request.TeamId.HasValue)
+                {
+                    await _teamService.UpdateStadiumIdAsync(request.TeamId.Value, stadiumId);
+                }
+
                 return RedirectToAction(nameof(Index));
             }
 
@@ -49,7 +55,7 @@ namespace FootballLeagueApp.Mvc.Controllers
 
         private async Task<IEnumerable<SelectListItem>> GetTeamsForSelectList()
         {
-            var teams = await _teamService.GetAllTeams();
+            var teams = await _teamService.GetTeamsWithoutStadiumAsync();
             var selectList = teams.Select(c => new SelectListItem { Text = c.Name, Value = c.Id.ToString() }).ToList();
             return selectList;
         }

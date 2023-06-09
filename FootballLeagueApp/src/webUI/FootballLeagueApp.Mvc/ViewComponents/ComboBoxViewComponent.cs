@@ -14,7 +14,7 @@ namespace FootballLeagueApp.Mvc.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var players = await playerService.GetAllPlayers();
+            var players = await playerService.GetAllPlayersAsync();
             return View(players);
         }
     }

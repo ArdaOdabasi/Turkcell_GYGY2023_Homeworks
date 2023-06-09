@@ -47,15 +47,14 @@ namespace FootballLeagueApp.Repositories.PlayerRepository
 
         public Player? Get(int id)
         {
-            return footballLeagueDbContext.Players.SingleOrDefault(x => x.Id == id);
+            return footballLeagueDbContext.Players.SingleOrDefault(p => p.Id == id);
         }
 
         public async Task<IList<Player?>> GetAllByNationalityAsync(string nationality)
         {
-            return await footballLeagueDbContext.Players
-                .AsNoTracking()
-                .Where(p => p.Nationality == nationality)
-                .ToListAsync();
+            return await footballLeagueDbContext.Players.AsNoTracking()
+                                                        .Where(p => p.Nationality == nationality)
+                                                        .ToListAsync();
         }
 
         public IList<Player?> GetAll()
@@ -75,7 +74,7 @@ namespace FootballLeagueApp.Repositories.PlayerRepository
 
         public async Task<Player?> GetAsync(int id)
         {
-            return await footballLeagueDbContext.Players.FirstOrDefaultAsync(c => c.Id == id);
+            return await footballLeagueDbContext.Players.FirstOrDefaultAsync(p => p.Id == id);
         }
 
         public void Update(Player entity)
@@ -89,5 +88,41 @@ namespace FootballLeagueApp.Repositories.PlayerRepository
             footballLeagueDbContext.Players.Update(entity);
             await footballLeagueDbContext.SaveChangesAsync();
         }
+
+        public async Task<int> UpdateAndReturnIdAsync(Player entity)
+        {
+            footballLeagueDbContext.Players.Update(entity);
+            await footballLeagueDbContext.SaveChangesAsync();
+
+            return entity.Id;
+        }
+
+        public async Task<int> CreateAndReturnIdAsync(Player entity)
+        {
+            await footballLeagueDbContext.Players.AddAsync(entity);
+            await footballLeagueDbContext.SaveChangesAsync();
+
+            return entity.Id;
+        }
+
+        public async Task UpdateStatisticIdAsync(int playerId, int newStatisticId)
+        {
+            var players = await footballLeagueDbContext.Players
+                .Where(p => p.StatisticId == newStatisticId || p.Id == playerId)
+                .ToListAsync();
+
+            foreach (var player in players)
+            {
+                player.StatisticId = player.Id == playerId ? newStatisticId : null;
+            }
+
+            await footballLeagueDbContext.SaveChangesAsync();
+        }
+
+
+        public async Task<bool> IsExistsAsync(int id)
+        {
+            return await footballLeagueDbContext.Players.AnyAsync(p => p.Id == id);
+        }    
     }
 }

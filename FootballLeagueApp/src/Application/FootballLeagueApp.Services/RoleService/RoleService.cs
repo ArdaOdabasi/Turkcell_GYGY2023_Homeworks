@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using FootballLeagueApp.DTOs.Requests.RoleRequests;
+using FootballLeagueApp.DTOs.Requests.TeamRequests;
 using FootballLeagueApp.DTOs.Responses.RoleRequests;
+using FootballLeagueApp.Entities;
 using FootballLeagueApp.Repositories.RoleRepository;
 using FootballLeagueApp.Services.Extensions;
 using System;
@@ -22,7 +24,7 @@ namespace FootballLeagueApp.Services.RoleService
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<RoleDisplayResponse>> GetAllRoles()
+        public async Task<IEnumerable<RoleDisplayResponse>> GetAllRolesAsync()
         {
             var roles = await _repository.GetAllAsync();
             var responses = roles.ConvertRolesToDisplayResponses(_mapper);
@@ -33,6 +35,23 @@ namespace FootballLeagueApp.Services.RoleService
         {
             var role = _mapper.ConvertRequestToRole(createNewRoleRequest);
             await _repository.CreateAsync(role);
+        }
+
+        public async Task<bool> RoleIsExistsAsync(int roleId)
+        {
+            return await _repository.IsExistsAsync(roleId);
+        }
+
+        public async Task UpdateRoleAsync(UpdateRoleRequest updateRoleRequest)
+        {
+            var team = _mapper.ConvertUpdateRequestToRole(updateRoleRequest);
+            await _repository.UpdateAsync(team);
+        }
+
+        public async Task<UpdateRoleRequest> GetRoleForUpdate(int id)
+        {
+            var role = await _repository.GetAsync(id);
+            return _mapper.ConvertRoleToUpdateRequest(role);
         }
     }
 }

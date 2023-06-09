@@ -34,7 +34,7 @@ namespace FootballLeagueApp.Mvc.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var matches = await _matchService.GetAllMatches();
+            var matches = await _matchService.GetAllMatchesAsync();
 
             List<TeamDisplayResponse> homeTeams = new List<TeamDisplayResponse>();
             List<TeamDisplayResponse> awayTeams = new List<TeamDisplayResponse>();
@@ -48,7 +48,7 @@ namespace FootballLeagueApp.Mvc.Controllers
             {
                 if (match.HomeTeamId.HasValue)
                 {
-                    homeTeam = await _teamService.GetTeamById(match.HomeTeamId.Value);
+                    homeTeam = await _teamService.GetTeamByIdAsync(match.HomeTeamId.Value);
                 }
                 else
                 {
@@ -58,7 +58,7 @@ namespace FootballLeagueApp.Mvc.Controllers
 
                 if (match.AwayTeamId.HasValue)
                 {
-                    awayTeam = await _teamService.GetTeamById(match.AwayTeamId.Value);
+                    awayTeam = await _teamService.GetTeamByIdAsync(match.AwayTeamId.Value);
                 }
                 else
                 {
@@ -68,7 +68,7 @@ namespace FootballLeagueApp.Mvc.Controllers
 
                 if (match.StadiumId.HasValue)
                 {
-                    stadium = await _stadiumService.GetStadiumById(match.StadiumId.Value);
+                    stadium = await _stadiumService.GetStadiumByIdAsync(match.StadiumId.Value);
                 }
                 else
                 {
@@ -112,14 +112,14 @@ namespace FootballLeagueApp.Mvc.Controllers
 
         private async Task<IEnumerable<SelectListItem>> GetTeamsForSelectList()
         {
-            var teams = await _teamService.GetAllTeams();
+            var teams = await _teamService.GetAllTeamsAsync();
             var selectList = teams.Select(c => new SelectListItem { Text = c.Name, Value = c.Id.ToString() }).ToList();
             return selectList;
         }
 
         private async Task<IEnumerable<SelectListItem>> GetStadiumsForSelectList()
         {
-            var stadiums = await _stadiumService.GetAllStadiums();
+            var stadiums = await _stadiumService.GetAllStadiumsAsync();
             var selectList = stadiums.Select(c => new SelectListItem { Text = c.Name, Value = c.Id.ToString() }).ToList();
             return selectList;
         }

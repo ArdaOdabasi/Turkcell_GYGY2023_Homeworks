@@ -1,5 +1,6 @@
 ﻿using FootballLeagueApp.DTOs.Requests.CoachRequests;
 using FootballLeagueApp.DTOs.Requests.StadiumRequests;
+using FootballLeagueApp.Entities;
 using FootballLeagueApp.Services.CoachService;
 using FootballLeagueApp.Services.PlayerService;
 using FootballLeagueApp.Services.TeamService;
@@ -23,7 +24,7 @@ namespace FootballLeagueApp.Mvc.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var coaches = await _coachService.GetAllCoaches();
+            var coaches = await _coachService.GetAllCoachesAsync();
             return View(coaches);
         }
 
@@ -39,7 +40,13 @@ namespace FootballLeagueApp.Mvc.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _coachService.CreateCoachAsync(request);
+                int coachId = await _coachService.CreateAndReturnIdAsync(request);
+
+                if (request.TeamId.HasValue)
+                {
+                    await _teamService.UpdateCoachIdAsync(request.TeamId.Value, coachId);
+                }
+
                 return RedirectToAction(nameof(Index));
             }
 
@@ -49,7 +56,7 @@ namespace FootballLeagueApp.Mvc.Controllers
 
         private async Task<IEnumerable<SelectListItem>> GetTeamsForSelectList()
         {
-            var teams = await _teamService.GetAllTeams();
+            var teams = await _teamService.GetTeamsWithoutCoachAsync();
             var selectList = teams.Select(c => new SelectListItem { Text = c.Name, Value = c.Id.ToString() }).ToList();
             return selectList;
         }

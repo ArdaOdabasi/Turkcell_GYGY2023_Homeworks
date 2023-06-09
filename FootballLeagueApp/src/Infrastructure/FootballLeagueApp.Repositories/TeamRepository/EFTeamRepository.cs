@@ -47,7 +47,7 @@ namespace FootballLeagueApp.Repositories.TeamRepository
 
         public Team? Get(int id)
         {
-            return footballLeagueDbContext.Teams.SingleOrDefault(x => x.Id == id);
+            return footballLeagueDbContext.Teams.SingleOrDefault(t => t.Id == id);
         }
 
         public IList<Team?> GetAll()
@@ -60,6 +60,11 @@ namespace FootballLeagueApp.Repositories.TeamRepository
             return await footballLeagueDbContext.Teams.ToListAsync();
         }
 
+        public async Task<IEnumerable<Team?>> GetTeamsWithoutStadiumAsync()
+        {
+            return await footballLeagueDbContext.Teams.Where(t => t.StadiumId == null).ToListAsync();
+        }
+
         public IList<Team> GetAllWithPredicate(Expression<Func<Team, bool>> predicate)
         {
             return footballLeagueDbContext.Teams.Where(predicate).ToList();
@@ -67,7 +72,7 @@ namespace FootballLeagueApp.Repositories.TeamRepository
 
         public async Task<Team?> GetAsync(int id)
         {
-            return await footballLeagueDbContext.Teams.FirstOrDefaultAsync(c => c.Id == id);
+            return await footballLeagueDbContext.Teams.FirstOrDefaultAsync(t => t.Id == id);
         }
 
         public void Update(Team entity)
@@ -81,5 +86,72 @@ namespace FootballLeagueApp.Repositories.TeamRepository
             footballLeagueDbContext.Teams.Update(entity);
             await footballLeagueDbContext.SaveChangesAsync();
         }
+
+        public async Task<int> UpdateAndReturnIdAsync(Team entity)
+        {
+            footballLeagueDbContext.Teams.Update(entity);
+            await footballLeagueDbContext.SaveChangesAsync();
+
+            return entity.Id;
+        }
+
+        public async Task UpdateStadiumIdAsync(int teamId, int newStadiumId)
+        {
+            var teams = await footballLeagueDbContext.Teams
+                .Where(t => t.StadiumId == newStadiumId || t.Id == teamId)
+                .ToListAsync();
+
+            foreach (var team in teams)
+            {
+                team.StadiumId = team.Id == teamId ? newStadiumId : null;
+            }
+
+            await footballLeagueDbContext.SaveChangesAsync();
+        }
+
+
+        public async Task<List<Team>> GetTeamsWithoutCoachAsync()
+        {
+            return await footballLeagueDbContext.Teams.Where(t => t.CoachId == null).ToListAsync();
+        }
+
+        public async Task<int> CreateAndReturnIdAsync(Team entity)
+        {
+            await footballLeagueDbContext.Teams.AddAsync(entity);
+            await footballLeagueDbContext.SaveChangesAsync();
+
+            return entity.Id;
+        }
+    
+        public async Task UpdateCoachIdAsync(int teamId, int newCoachId)
+        {
+            var coaches = await footballLeagueDbContext.Coaches
+                .Where(c => c.TeamId == newCoachId || c.TeamId == teamId)
+                .ToListAsync();
+
+            foreach (var coach in coaches)
+            {
+                coach.TeamId = coach.TeamId == teamId ? newCoachId : null;
+            }
+
+            await footballLeagueDbContext.SaveChangesAsync();
+        }
+
+
+        public async Task AddPlayerToTeam(Player player)
+        {
+            var team = await footballLeagueDbContext.Teams.FindAsync(player.TeamId);
+
+            if (team != null)
+            {
+                team.Players.Add(player);
+                await footballLeagueDbContext.SaveChangesAsync();
+            }
+        }
+
+        public async Task<bool> IsExistsAsync(int id)
+        {
+            return await footballLeagueDbContext.Teams.AnyAsync(t => t.Id == id);
+        }      
     }
 }

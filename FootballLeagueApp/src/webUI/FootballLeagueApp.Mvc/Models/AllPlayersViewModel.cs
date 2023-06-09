@@ -9,5 +9,6 @@ namespace FootballLeagueApp.Mvc.Models
     {
         public IEnumerable<PlayerDisplayResponse> players { get; set; }
         public List<StatisticDisplayResponse> statistics { get; set; }
+        public Dictionary<int, string> teamNames { get; set; } 
     }
 }

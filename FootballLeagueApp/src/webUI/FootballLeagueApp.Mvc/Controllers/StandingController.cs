@@ -26,7 +26,7 @@ namespace FootballLeagueApp.Mvc.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var standings = await _standingService.GetAllStandingsOrderedByScore();
+            var standings = await _standingService.GetAllStandingsOrderedByScoreAsync();
 
             List<TeamDisplayResponse> teams = new List<TeamDisplayResponse>();
 
@@ -34,7 +34,7 @@ namespace FootballLeagueApp.Mvc.Controllers
 
             foreach (var standing in standings)
             {
-                team = await _teamService.GetTeamById(standing.Id);
+                team = await _teamService.GetTeamByIdAsync(standing.Id);
                 teams.Add(team);
             }
 
@@ -69,8 +69,8 @@ namespace FootballLeagueApp.Mvc.Controllers
 
         private async Task<IEnumerable<SelectListItem>> GetTeamsForSelectList()
         {   
-            var standings = await _standingService.GetAllStandings();
-            var teams = await _teamService.GetAllTeams();
+            var standings = await _standingService.GetAllStandingsAsync();
+            var teams = await _teamService.GetAllTeamsAsync();
 
             var existingTeamIds = standings.Select(s => s.TeamId).ToList();
             var filteredTeams = teams.Where(t => !existingTeamIds.Contains(t.Id));

@@ -10,5 +10,8 @@ namespace FootballLeagueApp.Repositories.PlayerRepository
     public interface IPlayerRepository : IRepository<Player>
     {
         Task<IList<Player?>> GetAllByNationalityAsync(string nationality);
+        Task<int> CreateAndReturnIdAsync(Player entity);
+        Task<int> UpdateAndReturnIdAsync(Player entity);
+        Task UpdateStatisticIdAsync(int playerId, int newStatisticId);
     }
 }

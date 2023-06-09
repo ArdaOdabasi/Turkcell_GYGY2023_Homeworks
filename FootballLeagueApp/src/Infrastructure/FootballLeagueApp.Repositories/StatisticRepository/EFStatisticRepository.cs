@@ -25,6 +25,14 @@ namespace FootballLeagueApp.Repositories.StatisticRepository
             footballLeagueDbContext.SaveChangesAsync();
         }
 
+        public async Task<int> CreateAndReturnIdAsync(Statistic entity)
+        {
+            await footballLeagueDbContext.Statistics.AddAsync(entity);
+            await footballLeagueDbContext.SaveChangesAsync();
+
+            return entity.Id;
+        }
+
         public async Task CreateAsync(Statistic entity)
         {
             await footballLeagueDbContext.Statistics.AddAsync(entity);
@@ -47,7 +55,7 @@ namespace FootballLeagueApp.Repositories.StatisticRepository
 
         public Statistic? Get(int id)
         {
-            return footballLeagueDbContext.Statistics.SingleOrDefault(x => x.Id == id);
+            return footballLeagueDbContext.Statistics.SingleOrDefault(s => s.Id == id);
         }
 
         public IList<Statistic?> GetAll()
@@ -67,7 +75,17 @@ namespace FootballLeagueApp.Repositories.StatisticRepository
 
         public async Task<Statistic?> GetAsync(int id)
         {
-            return await footballLeagueDbContext.Statistics.FirstOrDefaultAsync(c => c.Id == id);
+            return await footballLeagueDbContext.Statistics.FirstOrDefaultAsync(s => s.Id == id);
+        }
+
+        public async Task<Statistic?> GetStatisticByPlayerIdAsync(int playerId)
+        {
+            return await footballLeagueDbContext.Statistics.FirstOrDefaultAsync(s => s.PlayerId == playerId);
+        }
+
+        public async Task<bool> IsExistsAsync(int id)
+        {
+            return await footballLeagueDbContext.Statistics.AnyAsync(s => s.Id == id);
         }
 
         public void Update(Statistic entity)
@@ -75,11 +93,34 @@ namespace FootballLeagueApp.Repositories.StatisticRepository
             footballLeagueDbContext.Statistics.Update(entity);
             footballLeagueDbContext.SaveChanges();
         }
-
+   
         public async Task UpdateAsync(Statistic entity)
         {
             footballLeagueDbContext.Statistics.Update(entity);
             await footballLeagueDbContext.SaveChangesAsync();
         }
+
+        public async Task<int> UpdateAndReturnIdAsync(Statistic entity)
+        {
+            footballLeagueDbContext.Statistics.Update(entity);
+            await footballLeagueDbContext.SaveChangesAsync();
+
+            return entity.Id;
+        }
+
+        public async Task UpdatePlayerIdAsync(int statisticId, int newPlayerId)
+        {
+            var statistics = await footballLeagueDbContext.Statistics
+                .Where(s => s.PlayerId == newPlayerId || s.Id == statisticId)
+                .ToListAsync();
+
+            foreach (var statistic in statistics)
+            {
+                statistic.PlayerId = statistic.Id == statisticId ? newPlayerId : null;
+            }
+
+            await footballLeagueDbContext.SaveChangesAsync();
+        }
+
     }
 }

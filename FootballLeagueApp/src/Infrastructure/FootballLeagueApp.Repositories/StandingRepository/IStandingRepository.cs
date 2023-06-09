@@ -10,6 +10,6 @@ namespace FootballLeagueApp.Repositories.StandingRepository
 {
     public interface IStandingRepository : IRepository<Standing>
     {
-        Task<IEnumerable<Standing>> GetAllStandingsOrderedByScore();
+        Task<IEnumerable<Standing>> GetAllStandingsOrderedByScoreAsync();
     }
 }

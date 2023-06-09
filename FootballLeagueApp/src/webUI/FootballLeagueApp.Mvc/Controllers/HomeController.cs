@@ -1,4 +1,5 @@
-﻿using FootballLeagueApp.DTOs.Requests.TeamRequests;
+﻿using Azure.Core;
+using FootballLeagueApp.DTOs.Requests.TeamRequests;
 using FootballLeagueApp.DTOs.Responses.TeamResponses;
 using FootballLeagueApp.Entities;
 using FootballLeagueApp.Mvc.Models;
@@ -29,7 +30,7 @@ namespace FootballLeagueApp.Mvc.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var teams = await _teamService.GetAllTeams();
+            var teams = await _teamService.GetAllTeamsAsync();
             return View(teams);
         }
 
@@ -43,10 +44,21 @@ namespace FootballLeagueApp.Mvc.Controllers
 
         [HttpPost]
         public async Task<IActionResult> Create(CreateNewTeamRequest request)
-        {
+        {        
             if (ModelState.IsValid)
             {
-                await _teamService.CreateTeamAsync(request);
+                int teamId = await _teamService.CreateAndReturnIdAsync(request);
+
+                if (request.StadiumId.HasValue)
+                {
+                    await _stadiumService.UpdateTeamIdAsync(request.StadiumId.Value, teamId);
+                }
+
+                if (request.CoachId.HasValue)
+                {
+                    await _coachService.UpdateTeamIdAsync(request.CoachId.Value, teamId);
+                }
+
                 return RedirectToAction(nameof(Index));
             }
 
@@ -55,16 +67,54 @@ namespace FootballLeagueApp.Mvc.Controllers
             return View();
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            ViewBag.Coaches = await GetCoachesForSelectList();
+            ViewBag.Stadiums = await GetStadiumsForSelectList();
+            var team = await _teamService.GetTeamForUpdate(id);
+
+            return View(team);        
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, UpdateTeamRequest updateTeamRequest)
+        {
+            if (await _teamService.TeamIsExistsAsync(id))
+            {
+                if (ModelState.IsValid)
+                {
+                    int teamId = await _teamService.UpdateAndReturnIdAsync(updateTeamRequest);
+
+                    if (updateTeamRequest.StadiumId.HasValue)
+                    {
+                        await _stadiumService.UpdateTeamIdAsync(updateTeamRequest.StadiumId.Value, teamId);
+                    }
+
+                    if (updateTeamRequest.CoachId.HasValue)
+                    {
+                        await _coachService.UpdateTeamIdAsync(updateTeamRequest.CoachId.Value, teamId);
+                    }
+
+                    return RedirectToAction(nameof(Index));
+                }
+                ViewBag.Coaches = await GetCoachesForSelectList();
+                ViewBag.Stadiums = await GetStadiumsForSelectList();
+                return View();
+            }
+            return NotFound();
+        }
+
         private async Task<IEnumerable<SelectListItem>> GetCoachesForSelectList()
         {
-            var coaches = await _coachService.GetAllCoaches();
+            var coaches = await _coachService.GetCoachesWithoutTeamAsync();
             var selectList = coaches.Select(c => new SelectListItem { Text = c.FirstName, Value = c.Id.ToString() }).ToList();
             return selectList;
         }
 
         private async Task<IEnumerable<SelectListItem>> GetStadiumsForSelectList()
         {
-            var stadiums = await _stadiumService.GetAllStadiums();
+            var stadiums = await _stadiumService.GetStadiumsWithoutTeamAsync();
             var selectList = stadiums.Select(c => new SelectListItem { Text = c.Name, Value = c.Id.ToString() }).ToList();
             return selectList;
         }
