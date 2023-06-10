@@ -1,11 +1,11 @@
-HangFire ve HangFire'ın ASP.NET MVC'de Kullanımı
+# HangFire ve HangFire'ın ASP.NET MVC'de Kullanımı
 Giriş
 Geliştiricilerin zamanlanmış görevler, arka plan işlemleri ve tekrarlayan işlemler gibi işleri kolayca yönetebilmelerini sağlayan bir kütüphane olan HangFire, ASP.NET MVC projelerinde oldukça popülerdir. Bu yazıda, HangFire'ın ne olduğunu, nasıl çalıştığını ve ASP.NET MVC projelerinde nasıl kullanıldığını detaylı bir şekilde inceleyeceğiz.
 
-HangFire Nedir?
+# HangFire Nedir?
 HangFire, .NET platformu için açık kaynaklı bir arka plan işlemleri yönetim kütüphanesidir. Bu kütüphane, zamanlanmış görevleri yönetmek, arka planda çalışan işleri gerçekleştirmek ve tekrarlayan işleri kolayca takip etmek için kullanılır. HangFire, basit ve kullanımı kolay API'ler sağlar ve çeşitli iş sıralama tekniklerini destekler.
 
-HangFire'ın Çalışma Mekanizması
+# HangFire'ın Çalışma Mekanizması
 HangFire, temelde bir veritabanı (varsayılan olarak SQL tabanlı) kullanarak arka planda çalışan işlerin durumunu takip eder. HangFire'ın çalışma mekanizması şu adımlardan oluşur:
 
 İşin tanımlanması: HangFire'a bir iş tanımlaması yapılır. Bu iş, bir metodun adı ve parametreleri gibi bilgilerle birlikte belirtilir.
@@ -18,7 +18,7 @@ HangFire, temelde bir veritabanı (varsayılan olarak SQL tabanlı) kullanarak a
 
 İşin durumunun takip edilmesi: HangFire, işin durumunu veritabanında günceller ve istemci tarafından işin durumu hakkında bilgi alınabilir.
 
-ASP.NET MVC'de HangFire Kullanımı
+# ASP.NET MVC'de HangFire Kullanımı
 HangFire, ASP.NET MVC projelerinde kullanımı oldukça kolaydır. Aşağıda, HangFire'ın ASP.NET MVC projelerinde nasıl kullanılabileceği adım adım açıklanmaktadır:
 
 HangFire'ı projeye ekleme: İlk adım olarak, HangFire'ı projenize eklemeniz gerekmektedir. Bunun için, NuGet paket yöneticisini kullanarak HangFire paketini projenize ekleyebilirsiniz.
