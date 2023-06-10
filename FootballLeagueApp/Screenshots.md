@@ -18,3 +18,13 @@
 
 ![8](https://github.com/ArdaOdabasi/Turkcell_GYGY2023_Homeworks/assets/61662021/ff19e807-9fe7-4773-9e76-2b2929c1c169)
 
+![9](https://github.com/ArdaOdabasi/Turkcell_GYGY2023_Homeworks/assets/61662021/8e6726e2-0b4f-4f8e-824e-c19b6955aed3)
+
+![10](https://github.com/ArdaOdabasi/Turkcell_GYGY2023_Homeworks/assets/61662021/509291fe-9dbf-4531-a7dc-7a14ba11a932)
+
+![11](https://github.com/ArdaOdabasi/Turkcell_GYGY2023_Homeworks/assets/61662021/83d3d850-0310-4f51-b6d1-b77e96e13b8e)
+
+![12](https://github.com/ArdaOdabasi/Turkcell_GYGY2023_Homeworks/assets/61662021/691909e1-8f08-4b7e-a5a0-4c04e95982d2)
+
+![13](https://github.com/ArdaOdabasi/Turkcell_GYGY2023_Homeworks/assets/61662021/dc0ae0e3-17da-4001-99b2-a787f6ee7c55)
+
