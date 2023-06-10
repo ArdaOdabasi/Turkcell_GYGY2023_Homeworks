@@ -1,0 +1,69 @@
+﻿@model FootballLeagueApp.DTOs.Requests.StandingRequests.UpdateStandingRequest
+
+<h3>Takımın Bilgilerini Güncelle</h3>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" asp-controller="Standing">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                Id
+                <input asp-for="Id" class="form-control" readonly/>
+                <span asp-validation-for="Id" class="text-danger"></span>
+                <br />
+            </div>
+            <div class="form-group">
+                Puan
+                <input asp-for="Score" class="form-control" />
+                <span asp-validation-for="Score" class="text-danger"></span>
+                <br />
+            </div>
+            <div class="form-group">
+                Galibiyet Sayısı
+                <input asp-for="Win" class="form-control" />
+                <span asp-validation-for="Win" class="text-danger"></span>
+                <br />
+            </div>
+            <div class="form-group">
+                Beraberlik Sayısı
+                <input asp-for="Draw" class="form-control" />
+                <span asp-validation-for="Draw" class="text-danger"></span>
+                <br />
+            </div>
+            <div class="form-group">
+                Mağlubiyet Sayısı
+                <input asp-for="Defeat" class="form-control" />
+                <span asp-validation-for="Defeat" class="text-danger"></span>
+                <br />
+            </div>
+            <div class="form-group">
+                Attığı Gol Sayısı
+                <input asp-for="GoalsFor" class="form-control" />
+                <span asp-validation-for="GoalsFor" class="text-danger"></span>
+                <br />
+            </div>
+            <div class="form-group">
+                Yediği Gol Sayısı
+                <input asp-for="GoalsAgainst" class="form-control" />
+                <span asp-validation-for="GoalsAgainst" class="text-danger"></span>
+                <br />
+            </div>          
+            <div class="form-group">
+                Takım Id
+                <input asp-for="TeamId" class="form-control" readonly />
+                <span asp-validation-for="TeamId" class="text-danger"></span>
+                <br />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Takımın Bilgilerini Güncelle" class="btn btn-primary" />
+                <br />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <br />
+    <a asp-action="Index">Puan Tablosuna Dön</a>
+</div>

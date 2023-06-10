@@ -1,5 +1,6 @@
 ﻿using FootballLeagueApp.DTOs.Requests.MatchRequests;
 using FootballLeagueApp.DTOs.Requests.StadiumRequests;
+using FootballLeagueApp.DTOs.Requests.StandingRequests;
 using FootballLeagueApp.DTOs.Responses.StadiumResponses;
 using FootballLeagueApp.DTOs.Responses.StatisticResponses;
 using FootballLeagueApp.DTOs.Responses.TeamResponses;
@@ -108,6 +109,42 @@ namespace FootballLeagueApp.Mvc.Controllers
             ViewBag.Teams = await GetTeamsForSelectList();
             ViewBag.Stadiums = await GetStadiumsForSelectList();
             return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            var match = await _matchService.GetMatchForUpdate(id);
+            return View(match);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, UpdateMatchRequest updateMatchRequest)
+        {
+            if (await _matchService.MatchIsExistsAsync(id))
+            {
+                if (ModelState.IsValid)
+                {
+                    await _matchService.UpdateMatchAsync(updateMatchRequest);
+
+                    return RedirectToAction(nameof(Index));
+                }
+                return View();
+            }
+            return NotFound();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _matchService.DeleteAsync(id);
+            return RedirectToAction(nameof(Index));
         }
 
         private async Task<IEnumerable<SelectListItem>> GetTeamsForSelectList()

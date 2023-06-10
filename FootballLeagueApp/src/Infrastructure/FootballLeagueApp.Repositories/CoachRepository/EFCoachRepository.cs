@@ -119,6 +119,5 @@ namespace FootballLeagueApp.Repositories.CoachRepository
 
             await footballLeagueDbContext.SaveChangesAsync();
         }
-
     }
 }

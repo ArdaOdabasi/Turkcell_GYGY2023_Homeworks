@@ -44,6 +44,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/pi/source/repos/Turkcell Geleceği Yazanlar/Assignments/Turkcell_GYGY2023_Homeworks/FootballLeagueApp/src/webUI/FootballLeagueApp.Mvc/Views/Match/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pi/source/repos/Turkcell Geleceği Yazanlar/Assignments/Turkcell_GYGY2023_Homeworks/FootballLeagueApp/src/webUI/FootballLeagueApp.Mvc/Views/Match/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/pi/source/repos/Turkcell Geleceği Yazanlar/Assignments/Turkcell_GYGY2023_Homeworks/FootballLeagueApp/src/webUI/FootballLeagueApp.Mvc/Views/Match/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -78,6 +86,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/pi/source/repos/Turkcell Geleceği Yazanlar/Assignments/Turkcell_GYGY2023_Homeworks/FootballLeagueApp/src/webUI/FootballLeagueApp.Mvc/Views/Standing/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhbmRpbmdcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pi/source/repos/Turkcell Geleceği Yazanlar/Assignments/Turkcell_GYGY2023_Homeworks/FootballLeagueApp/src/webUI/FootballLeagueApp.Mvc/Views/Standing/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhbmRpbmdcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pi/source/repos/Turkcell Geleceği Yazanlar/Assignments/Turkcell_GYGY2023_Homeworks/FootballLeagueApp/src/webUI/FootballLeagueApp.Mvc/Views/Standing/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhbmRpbmdcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/pi/source/repos/Turkcell Geleceği Yazanlar/Assignments/Turkcell_GYGY2023_Homeworks/FootballLeagueApp/src/webUI/FootballLeagueApp.Mvc/Views/Standing/Index.cshtml]

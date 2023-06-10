@@ -1,5 +1,6 @@
 ﻿using FootballLeagueApp.DTOs.Requests.MatchRequests;
 using FootballLeagueApp.DTOs.Requests.StandingRequests;
+using FootballLeagueApp.DTOs.Requests.TeamRequests;
 using FootballLeagueApp.DTOs.Responses.TeamResponses;
 using FootballLeagueApp.Entities;
 using FootballLeagueApp.Mvc.Models;
@@ -34,7 +35,7 @@ namespace FootballLeagueApp.Mvc.Controllers
 
             foreach (var standing in standings)
             {
-                team = await _teamService.GetTeamByIdAsync(standing.Id);
+                team = await _teamService.GetTeamByIdAsync(standing.TeamId.GetValueOrDefault());
                 teams.Add(team);
             }
 
@@ -65,6 +66,42 @@ namespace FootballLeagueApp.Mvc.Controllers
 
             ViewBag.Teams = await GetTeamsForSelectList();
             return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {         
+            var standing = await _standingService.GetStandingForUpdate(id);
+            return View(standing);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, UpdateStandingRequest updateStandingRequest)
+        {
+            if (await _standingService.StandingIsExistsAsync(id))
+            {
+                if (ModelState.IsValid)
+                {
+                    await _standingService.UpdateStandingAsync(updateStandingRequest);
+              
+                    return RedirectToAction(nameof(Index));
+                }
+                return View();
+            }
+            return NotFound();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _standingService.DeleteAsync(id);
+            return RedirectToAction(nameof(Index));
         }
 
         private async Task<IEnumerable<SelectListItem>> GetTeamsForSelectList()

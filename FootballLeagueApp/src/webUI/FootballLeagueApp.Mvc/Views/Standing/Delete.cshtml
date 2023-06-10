@@ -1,0 +1,9 @@
+﻿@model FootballLeagueApp.Entities.Standing
+
+<h3>Puan Tablosundan Takımı Silmek İstediğinden Emin Misin?</h3>
+<div>
+    <form asp-action="Delete">
+        <input type="submit" value="Sil" class="btn btn-danger" /> |
+        <a asp-action="Index">Puan Tablosuna Geri Dön</a>
+    </form>
+</div>

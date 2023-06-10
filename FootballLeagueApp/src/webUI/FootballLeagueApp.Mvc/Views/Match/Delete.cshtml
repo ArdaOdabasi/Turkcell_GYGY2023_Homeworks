@@ -1,0 +1,9 @@
+﻿@model FootballLeagueApp.Entities.Match
+
+<h3>Bu Maçı Silmek İstediğinden Emin Misin?</h3>
+<div>
+    <form asp-action="Delete">
+        <input type="submit" value="Sil" class="btn btn-danger" /> |
+        <a asp-action="Index">Maçlar Listesine Geri Dön</a>
+    </form>
+</div>

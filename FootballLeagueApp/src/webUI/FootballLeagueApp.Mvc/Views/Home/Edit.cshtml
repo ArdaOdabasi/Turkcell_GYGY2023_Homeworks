@@ -1,37 +1,32 @@
 ﻿@model FootballLeagueApp.DTOs.Requests.TeamRequests.UpdateTeamRequest
 
-@{
-    ViewData["Title"] = "Edit";
-}
+<h3>Takımı Düzenle</h3>
 
-<h1>Edit</h1>
-
-<h4>UpdateTeamRequest</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Id" class="control-label"></label>
+                Id
                 <input asp-for="Id" class="form-control" readonly />
                 <span asp-validation-for="Id" class="text-danger"></span>
                 <br />
             </div>
             <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
+                Takım Adı
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
                 <br />
             </div>
             <div class="form-group">
-                <label asp-for="FoundingDate" class="control-label"></label>
+                Takım Kuruluş Tarihi
                 <input asp-for="FoundingDate" class="form-control" />
                 <span asp-validation-for="FoundingDate" class="text-danger"></span>
                 <br />
             </div>
             <div class="form-group">
-                <label asp-for="ImageUrl" class="control-label"></label>
+                Amblem
                 <input asp-for="ImageUrl" class="form-control" />
                 <span asp-validation-for="ImageUrl" class="text-danger"></span>
                 <br />

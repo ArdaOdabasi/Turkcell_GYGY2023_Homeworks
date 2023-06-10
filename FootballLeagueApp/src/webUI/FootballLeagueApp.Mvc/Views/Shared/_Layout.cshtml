@@ -30,10 +30,10 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Stadium" asp-action="Index">Stadyumlar</a>
-                        </li>       
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Standing" asp-action="Index">Puan Durumu</a>
-                        </li>    
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Match" asp-action="Index">Maçlar</a>
                         </li>
@@ -41,12 +41,18 @@
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-controller="User" asp-action="Logout"> Çıkış Yap (@User.Identity.Name) </a>
-                            </li>                     
+                            </li>
                         }
                         else
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-controller="User" asp-action="Login"> Giriş Yap</a>
+                            </li>
+                        }
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Admin" asp-action="Index">Admin Paneli</a>
                             </li>
                         }
                     </ul>

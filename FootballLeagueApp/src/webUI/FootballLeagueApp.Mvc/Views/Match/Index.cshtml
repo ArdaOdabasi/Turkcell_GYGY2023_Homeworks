@@ -21,8 +21,9 @@
             <th scope="col">Tarih</th>
             <th scope="col">Ev Sahibi</th>
             <th scope="col">Sonuç</th>
-            <th scope="col">Deplasman</th>          
+            <th scope="col">Deplasman</th>
             <th scope="col">Stadyum</th>
+            <th scope="col">İşlemler</th>
         </tr>
     </thead>
     <tbody>
@@ -35,6 +36,14 @@
                 <td>@match.Result</td>
                 <td>@awayTeams[sequence-1].Name</td>
                 <td>@stadiums[sequence-1].Name</td>
+                <td>
+                    <a href="@Url.Action("Edit", "Match", new { id = match.Id })" class="btn btn-dark rounded-circle btn-sm">
+                        &#9998;
+                    </a>
+                    <a href="@Url.Action("Delete", "Match", new { id = match.Id })" class="btn btn-danger rounded-circle btn-sm">
+                        &#10060;
+                    </a>
+                </td>
             </tr>
 
             sequence++;

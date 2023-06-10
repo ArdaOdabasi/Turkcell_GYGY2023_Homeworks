@@ -22,28 +22,39 @@
             <th scope="col">Mağlubiyet</th>
             <th scope="col">Attığı Gol</th>
             <th scope="col">Yediği Gol</th>
+            <th scope="col">İşlemler</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var team in Model.teams)
         {
-            var standingDisplay = Model.standings.FirstOrDefault(s => s.TeamId == team.Id);
-            if (standingDisplay != null)
+            if (team != null)
             {
-                <tr>
-                    <th scope="row">@sequence</th>
-                    <td>@team.Name</td>
-                    <td>@standingDisplay.Score</td>
-                    <td>@standingDisplay.Win</td>
-                    <td>@standingDisplay.Draw</td>
-                    <td>@standingDisplay.Defeat</td>
-                    <td>@standingDisplay.GoalsFor</td>
-                    <td>@standingDisplay.GoalsAgainst</td>
-                </tr>
+                var standingDisplay = Model.standings.FirstOrDefault(s => s.TeamId == team.Id);
+                if (standingDisplay != null)
+                {
+                    <tr>
+                        <th scope="row">@sequence</th>
+                        <td>@team.Name</td>
+                        <td>@standingDisplay.Score</td>
+                        <td>@standingDisplay.Win</td>
+                        <td>@standingDisplay.Draw</td>
+                        <td>@standingDisplay.Defeat</td>
+                        <td>@standingDisplay.GoalsFor</td>
+                        <td>@standingDisplay.GoalsAgainst</td>
+                        <td>
+                            <a href="@Url.Action("Edit", "Standing", new { id = standingDisplay.Id })" class="btn btn-dark rounded-circle btn-sm">
+                                &#9998;
+                            </a>
+                            <a href="@Url.Action("Delete", "Standing", new { id = standingDisplay.Id })" class="btn btn-danger rounded-circle btn-sm">
+                                &#10060;
+                            </a>
+                        </td>
+                    </tr>
+                }
+                sequence++;
             }
-            sequence++;
         }
+
     </tbody>
 </table>
-
-
