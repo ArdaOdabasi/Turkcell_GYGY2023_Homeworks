@@ -2,7 +2,7 @@
 Giriş
 Geliştiricilerin zamanlanmış görevler, arka plan işlemleri ve tekrarlayan işlemler gibi işleri kolayca yönetebilmelerini sağlayan bir kütüphane olan HangFire, ASP.NET MVC projelerinde oldukça popülerdir. Bu yazıda, HangFire'ın ne olduğunu, nasıl çalıştığını ve ASP.NET MVC projelerinde nasıl kullanıldığını detaylı bir şekilde inceleyeceğiz.
 
-# HangFire Nedir?
+# HangFire Nedir? 
 HangFire, .NET platformu için açık kaynaklı bir arka plan işlemleri yönetim kütüphanesidir. Bu kütüphane, zamanlanmış görevleri yönetmek, arka planda çalışan işleri gerçekleştirmek ve tekrarlayan işleri kolayca takip etmek için kullanılır. HangFire, basit ve kullanımı kolay API'ler sağlar ve çeşitli iş sıralama tekniklerini destekler.
 
 # HangFire'ın Çalışma Mekanizması
