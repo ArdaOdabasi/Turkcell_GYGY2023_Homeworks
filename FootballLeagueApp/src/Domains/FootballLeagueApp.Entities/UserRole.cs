@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FootballLeagueApp.Entities
 {
-    public class UserRole
+    public class UserRole : IEntity
     {
         public int UserId { get; set; }
         public User User { get; set; }
