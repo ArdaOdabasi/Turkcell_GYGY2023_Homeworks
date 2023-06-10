@@ -1,32 +1,52 @@
-# HangFire ve HangFire'ın ASP.NET MVC'de Kullanımı
-Giriş
-Geliştiricilerin zamanlanmış görevler, arka plan işlemleri ve tekrarlayan işlemler gibi işleri kolayca yönetebilmelerini sağlayan bir kütüphane olan HangFire, ASP.NET MVC projelerinde oldukça popülerdir. Bu yazıda, HangFire'ın ne olduğunu, nasıl çalıştığını ve ASP.NET MVC projelerinde nasıl kullanıldığını detaylı bir şekilde inceleyeceğiz.
+# HangFire Nedir ve Nasıl Çalışır?
+HangFire, .NET tabanlı bir arka plan işler yöneticisidir. Bu kütüphane, planlanmış görevleri, tekrarlayan işleri ve kuyruğa alınmış işleri yönetmek için kullanılır. ASP.NET MVC projelerinde kullanılabildiği gibi genel .NET uygulamalarında da kullanılabilir.
 
-# HangFire Nedir? 
-HangFire, .NET platformu için açık kaynaklı bir arka plan işlemleri yönetim kütüphanesidir. Bu kütüphane, zamanlanmış görevleri yönetmek, arka planda çalışan işleri gerçekleştirmek ve tekrarlayan işleri kolayca takip etmek için kullanılır. HangFire, basit ve kullanımı kolay API'ler sağlar ve çeşitli iş sıralama tekniklerini destekler.
+# HangFire'ın Çalışma Mantığı
+HangFire, işleri arka planda ve asenkron bir şekilde çalıştırmak için kullanılan bir kuyruk sistemi kullanır. İşler, HangFire sunucusu tarafından yönetilir ve işlerin durumu bir veritabanında saklanır. HangFire sunucusu, planlanmış görevleri ve kuyruğa alınmış işleri izler ve uygun zamanlarda işleri çalıştırır.
 
-# HangFire'ın Çalışma Mekanizması
-HangFire, temelde bir veritabanı (varsayılan olarak SQL tabanlı) kullanarak arka planda çalışan işlerin durumunu takip eder. HangFire'ın çalışma mekanizması şu adımlardan oluşur:
+# HangFire'ı ASP.NET MVC Projesine Entegre Etme
+# HangFire'ın Kurulumu
 
-İşin tanımlanması: HangFire'a bir iş tanımlaması yapılır. Bu iş, bir metodun adı ve parametreleri gibi bilgilerle birlikte belirtilir.
+HangFire'ı ASP.NET MVC projesine entegre etmek için öncelikle HangFire paketini yüklemeniz gerekmektedir. Bu, NuGet Paket Yöneticisi'ni kullanarak veya Package Manager Console'da aşağıdaki komutu çalıştırarak yapılabilir:
+Install-Package HangFire
 
-İşin sıraya alınması: Tanımlanan iş, HangFire'a gönderilir ve sıraya alınır. Bu iş, genellikle bir zamanlama veya tetikleyici olaya bağlı olarak gerçekleştirilir.
+# HangFire'ı Projenize Dahil Etme
+HangFire'ı projenize ekledikten sonra, kullanmaya başlamak için aşağıdaki adımları izleyebilirsiniz:
 
-İşin planlanması: Sıraya alınan iş, HangFire tarafından veritabanında saklanır ve ilgili zaman diliminde gerçekleştirilmek üzere planlanır.
+Adım 1: HangFire'ı projeye dahil etme
+using Hangfire;
+using Hangfire.SqlServer;
 
-İşin gerçekleştirilmesi: Planlanan zamanda, HangFire arka planda çalışan bir süreç olarak belirtilen işi yürütür. İş, tanımlanan metodun gerçekleştirilmesiyle tamamlanır.
+Adım 2: HangFire'ı yapılandırma
+GlobalConfiguration.Configuration.UseSqlServerStorage("connectionString");
 
-İşin durumunun takip edilmesi: HangFire, işin durumunu veritabanında günceller ve istemci tarafından işin durumu hakkında bilgi alınabilir.
+Adım 3: HangFire sunucusunu başlatma
+app.UseHangfireServer();
 
-# ASP.NET MVC'de HangFire Kullanımı
-HangFire, ASP.NET MVC projelerinde kullanımı oldukça kolaydır. Aşağıda, HangFire'ın ASP.NET MVC projelerinde nasıl kullanılabileceği adım adım açıklanmaktadır:
+Adım 4: HangFire arayüzünü etkinleştirme
+app.UseHangfireDashboard();
 
-HangFire'ı projeye ekleme: İlk adım olarak, HangFire'ı projenize eklemeniz gerekmektedir. Bunun için, NuGet paket yöneticisini kullanarak HangFire paketini projenize ekleyebilirsiniz.
+# HangFire'ın Kullanımı ve Özellikleri
+# Görevleri Tanımlama
+HangFire'da görevler, BackgroundJob.Enqueue veya BackgroundJob.Schedule metodunu kullanarak tanımlanır. Enqueue metodu, bir görevi hemen çalıştırmak için kullanılırken, Schedule metodu belirli bir tarih veya süre sonra görevi çalıştırmak için kullanılır.
 
-HangFire sunucusunun yapılandırılması: HangFire, işleri yönetmek ve gerçekleştirmek için bir sunucu gerektirir. Sunucu yapılandırması için, Global.asax dosyanızda veya Startup.cs (ASP.NET Core projeleri için) dosyanızda gerekli ayarlamaları yapmanız gerekmektedir.
+# Görevleri Kuyruğa Alma
+HangFire, yoğun iş yükü altında çalışan bir uygulama için işleri kuyruğa almayı destekler. Görevler otomatik olarak kuyruğa alınır ve HangFire sunucusu tarafından uygun zamanda çalıştırılır.
 
-HangFire'ın kullanılacağı alanların belirlenmesi: HangFire'ı kullanmak istediğiniz alanları belirlemek için, projenizde HangFire'ı kullanmak istediğiniz sınıflara veya metotlara özel bir nitelik eklemeniz gerekmektedir. Bu nitelikler, HangFire'ın bu alanlarda çalışacak işleri yönetmesini sağlar.
+# HangFire Dashboard
+HangFire Dashboard, HangFire'ın yönetici panelidir ve arka planda çalışan işlerinizi izlemenize, yönetmenize ve çalıştırmanıza olanak sağlar. Dashboard'a /hangfire URL'sini kullanarak erişebilirsiniz.
 
-HangFire Dashboard'unun yapılandırılması: HangFire Dashboard, HangFire işlerini ve istatistiklerini gösteren bir kullanıcı arayüzüdür. Projede Dashboard'u etkinleştirmek ve yapılandırmak için gerekli ayarlamaları yapmanız gerekmektedir.
+# Özellikler
+HangFire, parametrelerle çalışabilen görevlerin tanımlanması, tekrarlayan işlerin planlanması, gecikmiş görevlerin çalıştırılması ve hata yönetimi gibi birçok özelliği destekler. Ayrıca, zengin bir API'ye sahiptir ve çeşitli senaryolara uygun esneklik sunar.
 
-İşleri planlama ve yönetme: HangFire'ı kullanarak zamanlanmış işler oluşturabilir, tekrarlayan görevler planlayabilir ve arka planda çalışan işleri yönetebilirsiniz. Bunun için HangFire'ın sağladığı API'leri kullanabilirsiniz.
+# Sonuç
+HangFire, ASP.NET MVC projelerinde arka planda çalışan işleri yönetmek için kullanışlı ve güçlü bir araçtır. Basit kullanımı ve zengin özellikleri sayesinde iş yükünü azaltmanıza ve uygulama performansını artırmanıza yardımcı olur.
+
+# Proje Ekran Görüntüleri
+![Hangfire1](https://github.com/ArdaOdabasi/Turkcell_GYGY2023_Homeworks/assets/61662021/fdc884d6-cf05-4945-ae27-2bb0f0c52584)
+
+![Hangfire2](https://github.com/ArdaOdabasi/Turkcell_GYGY2023_Homeworks/assets/61662021/67af4bbc-2afd-4e5b-8bde-441a365a5fe0)
+
+
+
+
