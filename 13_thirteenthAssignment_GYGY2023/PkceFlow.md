@@ -28,20 +28,6 @@ PKCE Flow, Authorization Code Flow'a bir güvenlik katmanı ekleyerek çalışı
 
 6-) İstemci, aldığı erişim token'ı kullanarak API isteklerini yetkilendirir.
 
-# PKCE Flow'un ASP.NET MVC'de Kullanımı
-
-PKCE Flow'u ASP.NET MVC projelerinde kullanmak için aşağıdaki adımları takip edebilirsiniz:
-
-1-) OAuth 2.0 sağlayıcısının yapılandırılması: Öncelikle, projenizde kullanacağınız OAuth 2.0 sağlayıcısını (Google, Facebook, Azure AD gibi) yapılandırmanız gerekmektedir. Sağlayıcının OAuth 2.0 istemcisi için gerekli istemci kimlik bilgilerini almanız ve projenizde yapılandırmanız gerekmektedir.
-
-2-) PKCE Flow'un istemci tarafında uygulanması: İstemci (client) tarafında PKCE Flow'un gerekliliklerini uygulamanız gerekmektedir. Bunun için, rastgele bir code verifier üretmeniz ve code challenge'ı hesaplamanız gerekmektedir. Daha sonra authorization isteği yaparken code challenge'ı ve diğer gerekli parametreleri göndermeniz gerekmektedir.
-
-3-) ASP.NET MVC projenizin yapılandırılması: ASP.NET MVC projenizde, PKCE Flow'u kullanarak kimlik doğrulama yapmak için gerekli ayarlamaları yapmanız gerekmektedir. Bu ayarlamalar, projenizin Startup.cs dosyasında yapılabilir.
-
-4-) Kimlik doğrulama işleminin gerçekleştirilmesi: PKCE Flow'u kullanarak kimlik doğrulama işlemini gerçekleştirebilirsiniz. Bu işlem, authorization isteği, authorization code alma ve erişim token'ı alma adımlarını içerir. İsteğe bağlı olarak, refresh token'ı alma ve kullanma adımlarını da uygulayabilirsiniz.
-
-# Çalışma Mekanizması 
-
 ![image](https://github.com/ArdaOdabasi/Turkcell_GYGY2023_Homeworks/assets/61662021/aede0020-5bde-4c46-9ec0-606f8fa50c41)
 
 Yukarıdaki örneği düşünelim. Yasal uygulama, bir yetkilendirme isteği başlatacak ve Yetkilendirme sunucusu başarılı kimlik doğrulama sonrasında Yetkilendirme kodunu yanıt olarak gönderecektir. Burada, kötü niyetli uygulama, yasal uygulama ile aynı özel URI'ye (yönlendirme URI'si) kaydedilmiştir. Şimdi, kötü niyetli uygulama erişim belirteci alacak ve bunu bir erişim belirteci için takas edecektir. Şimdi, bu uygulama korunan kaynaklara erişim elde edecektir.
@@ -53,6 +39,18 @@ PKCE, yukarıda bahsedilen Yetkilendirme kodunun yanlış kullanım sorununu ç�
 * code_challenge: code_verifier'ın SHA256 ile özetlenerek elde edilen karma değerin base64 URL kodlamasıdır.
 
 * code_challenge: Plain veya S256 olabilir.
+
+# PKCE Flow'un ASP.NET MVC'de Kullanımı
+
+PKCE Flow'u ASP.NET MVC projelerinde kullanmak için aşağıdaki adımları takip edebilirsiniz:
+
+1-) OAuth 2.0 sağlayıcısının yapılandırılması: Öncelikle, projenizde kullanacağınız OAuth 2.0 sağlayıcısını (Google, Facebook, Azure AD gibi) yapılandırmanız gerekmektedir. Sağlayıcının OAuth 2.0 istemcisi için gerekli istemci kimlik bilgilerini almanız ve projenizde yapılandırmanız gerekmektedir.
+
+2-) PKCE Flow'un istemci tarafında uygulanması: İstemci (client) tarafında PKCE Flow'un gerekliliklerini uygulamanız gerekmektedir. Bunun için, rastgele bir code verifier üretmeniz ve code challenge'ı hesaplamanız gerekmektedir. Daha sonra authorization isteği yaparken code challenge'ı ve diğer gerekli parametreleri göndermeniz gerekmektedir.
+
+3-) ASP.NET MVC projenizin yapılandırılması: ASP.NET MVC projenizde, PKCE Flow'u kullanarak kimlik doğrulama yapmak için gerekli ayarlamaları yapmanız gerekmektedir. Bu ayarlamalar, projenizin Startup.cs dosyasında yapılabilir.
+
+4-) Kimlik doğrulama işleminin gerçekleştirilmesi: PKCE Flow'u kullanarak kimlik doğrulama işlemini gerçekleştirebilirsiniz. Bu işlem, authorization isteği, authorization code alma ve erişim token'ı alma adımlarını içerir. İsteğe bağlı olarak, refresh token'ı alma ve kullanma adımlarını da uygulayabilirsiniz.
 
 # Sonuç
 
